@@ -10,7 +10,8 @@
                 "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}",
-                "-lpthread"
+                "-lpthread",
+                "-lcurl"
             ],
             "options": {
                 "cwd": "/usr/bin"
