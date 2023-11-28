@@ -8,7 +8,7 @@
 using namespace std;
 
 #define PACKET_SIZE 1024
-#define serverPort 7000
+// #define serverPort 7000
 int server_socket;
 
 void* proc_recv(void* data) {
@@ -31,6 +31,17 @@ void* proc_recv(void* data) {
 }
 
 int main() {
+
+    int serverPort;
+    string serverIpAddr;
+
+    cout << "서버 IP Address를 입력하세요: ";
+    cin >> serverIpAddr;
+    cout << "서버 Port Number를 입력하세요: ";
+    cin >> serverPort;
+
+    const char* ipAddressCString = serverIpAddr.c_str();
+
     server_socket = socket(AF_INET, SOCK_STREAM, 0);
     if (server_socket == -1) {
         cerr << "소켓 생성 실패" << endl;
@@ -40,7 +51,7 @@ int main() {
     struct sockaddr_in addr = {};
     addr.sin_family = AF_INET;
     addr.sin_port = htons(serverPort);
-    addr.sin_addr.s_addr = inet_addr("127.0.0.1");
+    addr.sin_addr.s_addr = inet_addr(ipAddressCString);
 
     while (1) {
         if (connect(server_socket, (struct sockaddr*)&addr, sizeof(addr)) == 0) {
