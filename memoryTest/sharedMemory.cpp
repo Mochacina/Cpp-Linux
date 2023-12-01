@@ -31,7 +31,7 @@ int main() {
 
     testStruct* shmaddr = (testStruct *)shmat(shmid, NULL, 0);
 
-    if (shmaddr == (char *)-1) {
+    if (shmaddr == (testStruct *)-1) {
         perror("shmat");
         exit(EXIT_FAILURE);
     }
