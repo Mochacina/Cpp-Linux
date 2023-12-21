@@ -22,7 +22,8 @@ int main() {
         return 1;
     }
     // RESTful API URL 설정
-    const char* url = "https://jsonplaceholder.typicode.com/posts";
+    //const char* url = "https://jsonplaceholder.typicode.com/posts";
+    const char* url = "http://httpbin.org/post";
 
     // POST 데이터 설정 (JSON 형식)
     const char* post_data = R"({"title":"foo","body":"bar","userId":1})";
