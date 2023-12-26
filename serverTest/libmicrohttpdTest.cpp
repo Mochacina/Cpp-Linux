@@ -41,7 +41,8 @@ int request_handler(void *cls, struct MHD_Connection *connection,
                                                        MHD_RESPMEM_PERSISTENT);
             ret = MHD_queue_response(connection, MHD_HTTP_OK, response);
             MHD_destroy_response(response);
-            free(page);
+            
+            delete page;
 
             return ret;
         }
