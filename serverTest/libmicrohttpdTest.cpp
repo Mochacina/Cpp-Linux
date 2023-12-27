@@ -34,6 +34,8 @@ int request_handler(void *cls, struct MHD_Connection *connection,
             int ret;
             char *page;
 
+            //memset(page, 0x00, sizeof(page));
+
             // 받은 파라미터를 페이지에 표시
             asprintf(&page, "<html><body>Parameter: %s</body></html>", value);
 
