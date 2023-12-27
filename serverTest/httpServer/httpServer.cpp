@@ -92,6 +92,11 @@ static void s_handle_client(int client_sock, struct sockaddr_in * client_addr, s
 	
 	parseHttpHeader(parseHttpRequestLine(header_buffer, &request), &fields);
 
+	snprintf(response_header, sizeof(response_header), "HTTP/1.1 200 OK\r\n"
+			 "Content-Type: text/html\r\n"
+			 "Content-Length: %ld\r\n"
+			 "\r\n", strlen(response_content));
+
 	snprintf(response_content, sizeof(response_content), "<h1>Your Request Information</h1>"
 			 "<p>You IP Address: %s:%d</p>"
 			 "<ul>"
@@ -99,11 +104,6 @@ static void s_handle_client(int client_sock, struct sockaddr_in * client_addr, s
 			 "<li>Path: %s</li>"
 			 "<li>Protocol: %s</li>"
 			 "</ul>", client_ip_address, ntohs(client_addr->sin_port), request.method, request.uri, request.protocol);
-
-	snprintf(response_header, sizeof(response_header), "HTTP/1.1 200 OK\r\n"
-			 "Content-Type: text/html\r\n"
-			 "Content-Length: %ld\r\n"
-			 "\r\n", strlen(response_content));
 
 	send(client_sock, response_header, strlen(response_header), 0);
 	send(client_sock, response_content, strlen(response_content), 0);
