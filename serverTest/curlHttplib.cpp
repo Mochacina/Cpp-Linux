@@ -2,6 +2,8 @@
 #include <iostream>
 #include "httplib.h"  // cpp-httplib 라이브러리 사용
 
+using namespace std;
+
 // HTTP GET 요청을 보내는 함수
 size_t WriteCallback(void* contents, size_t size, size_t nmemb, std::string* output) {
     size_t total_size = size * nmemb;
@@ -11,6 +13,15 @@ size_t WriteCallback(void* contents, size_t size, size_t nmemb, std::string* out
 
 // REST API 서버 핸들러
 void HelloHandler(const httplib::Request& req, httplib::Response& res) {
+    std::cout << req.path << std::endl;
+    for(pair<string, string> param : req.params){
+        string key = param.first;
+        string value = param.second;
+
+        cout << key << ": " << value << endl;
+    }
+    std::cout << req.get_param_value("param") << std::endl;
+
     // cURL 초기화
     CURL* curl;
     curl_global_init(CURL_GLOBAL_DEFAULT);
@@ -54,12 +65,27 @@ void HelloHandler(const httplib::Request& req, httplib::Response& res) {
     curl_global_cleanup();
 }
 
+void TestHandler(const httplib::Request& req, httplib::Response& res) {
+    std::cout << req.path << std::endl;
+    for(pair<string, string> param : req.params){
+        string key = param.first;
+        string value = param.second;
+
+        cout << key << ": " << value << endl;
+    }
+
+    res.set_content("done.\n", "application/json");
+}
+
 int main() {
     // cpp-httplib 서버 초기화
     httplib::Server svr;
 
     // 루트 핸들러 설정
     svr.Get("/", HelloHandler);
+
+    // 테스트 핸들러 설정
+    svr.Get("/test", TestHandler);
 
     // 서버 시작
     svr.listen("localhost", 8080);
