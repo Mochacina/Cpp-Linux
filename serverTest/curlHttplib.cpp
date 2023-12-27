@@ -1,67 +1,67 @@
 #include <curl/curl.h>
 #include <iostream>
-#include <httplib.h>  // cpp-httplib ¶óÀÌºê·¯¸® »ç¿ë
+#include "httplib.h"  // cpp-httplib ë¼ì´ë¸ŒëŸ¬ë¦¬ ì‚¬ìš©
 
-// HTTP GET ¿äÃ»À» º¸³»´Â ÇÔ¼ö
+// HTTP GET ìš”ì²­ì„ ë³´ë‚´ëŠ” í•¨ìˆ˜
 size_t WriteCallback(void* contents, size_t size, size_t nmemb, std::string* output) {
     size_t total_size = size * nmemb;
     output->append((char*)contents, total_size);
     return total_size;
 }
 
-// REST API ¼­¹ö ÇÚµé·¯
+// REST API ì„œë²„ í•¸ë“¤ëŸ¬
 void HelloHandler(const httplib::Request& req, httplib::Response& res) {
-    // cURL ÃÊ±âÈ­
+    // cURL ì´ˆê¸°í™”
     CURL* curl;
     curl_global_init(CURL_GLOBAL_DEFAULT);
     curl = curl_easy_init();
 
     if (!curl) {
-        std::cerr << "cURL ÃÊ±âÈ­ ½ÇÆÐ" << std::endl;
-        res.status = 500;  // ¼­¹ö ¿À·ù
+        std::cerr << "cURL ì´ˆê¸°í™” ì‹¤íŒ¨" << std::endl;
+        res.status = 500;  // ì„œë²„ ì˜¤ë¥˜
         return;
     }
 
-    // ´Ù¸¥ API ¼­¹ö·ÎÀÇ ¿äÃ»À» º¸³¾ URL ¼³Á¤
-    std::string otherApiUrl = https://api.example.com/data;
+    // ë‹¤ë¥¸ API ì„œë²„ë¡œì˜ ìš”ì²­ì„ ë³´ë‚¼ URL ì„¤ì •
+    std::string otherApiUrl = "http://httpbin.org/get";
 
-    // cURL ¿É¼Ç ¼³Á¤
+    // cURL ì˜µì…˜ ì„¤ì •
     curl_easy_setopt(curl, CURLOPT_URL, otherApiUrl.c_str());
 
-    // ÀÀ´äÀ» ÀúÀåÇÒ ¹®ÀÚ¿­
+    // ì‘ë‹µì„ ì €ìž¥í•  ë¬¸ìžì—´
     std::string response;
 
-    // µ¥ÀÌÅÍ ¼ö½Å ÄÝ¹é ÇÔ¼ö ¼³Á¤
+    // ë°ì´í„° ìˆ˜ì‹  ì½œë°± í•¨ìˆ˜ ì„¤ì •
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
 
-    // HTTP GET ¿äÃ» º¸³»±â
+    // HTTP GET ìš”ì²­ ë³´ë‚´ê¸°
     CURLcode resCurl = curl_easy_perform(curl);
 
-    // °á°ú È®ÀÎ ¹× Ãâ·Â
+    // ê²°ê³¼ í™•ì¸ ë° ì¶œë ¥
     if (resCurl != CURLE_OK) {
-        std::cerr << "´Ù¸¥ API ¼­¹ö·ÎÀÇ cURL ¿äÃ» ½ÇÆÐ: " << curl_easy_strerror(resCurl) << std::endl;
-        res.status = 500;  // ¼­¹ö ¿À·ù
+        std::cerr << "ë‹¤ë¥¸ API ì„œë²„ë¡œì˜ cURL ìš”ì²­ ì‹¤íŒ¨: " << curl_easy_strerror(resCurl) << std::endl;
+        res.status = 500;  // ì„œë²„ ì˜¤ë¥˜
     } else {
-        std::cout << "´Ù¸¥ API ¼­¹ö ÀÀ´ä: " << response << std::endl;
+        std::cout << "ë‹¤ë¥¸ API ì„œë²„ ì‘ë‹µ: " << response << std::endl;
 
-        // Å¬¶óÀÌ¾ðÆ®¿¡ ÀÀ´ä Àü¼Û
+        // í´ë¼ì´ì–¸íŠ¸ì— ì‘ë‹µ ì „ì†¡
         res.set_content(response, "application/json");
     }
 
-    // cURL Á¤¸®
+    // cURL ì •ë¦¬
     curl_easy_cleanup(curl);
     curl_global_cleanup();
 }
 
 int main() {
-    // cpp-httplib ¼­¹ö ÃÊ±âÈ­
+    // cpp-httplib ì„œë²„ ì´ˆê¸°í™”
     httplib::Server svr;
 
-    // ·çÆ® ÇÚµé·¯ ¼³Á¤
+    // ë£¨íŠ¸ í•¸ë“¤ëŸ¬ ì„¤ì •
     svr.Get("/", HelloHandler);
 
-    // ¼­¹ö ½ÃÀÛ
+    // ì„œë²„ ì‹œìž‘
     svr.listen("localhost", 8080);
 
     return 0;
