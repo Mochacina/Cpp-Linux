@@ -12,7 +12,7 @@
 using namespace std;
 
 #define PACKET_SIZE 1024
-#define serverPort 7000
+//#define serverPort 7000
 
 struct ClientInfo { // 클라이언트 정보 필드
 	int socket;
@@ -50,6 +50,17 @@ int main(){
 
     memset(&serverAddr, 0, sizeof(serverAddr)); // sockaddr_in 초기화
 
+    int serverPort = 7777;
+    while (true){
+        cout << "포트 번호를 입력하세요: ";
+        cin >> serverPort;
+        if (std::cin.fail()) {
+            cout << "입력이 올바른 정수가 아닙니다. 다시 입력해 주세요." << endl;
+        } else {
+            cout << "입력한 포트 번호: " << serverPort << endl;
+            break;
+        }
+    }
     serverAddr.sin_family = AF_INET;
     serverAddr.sin_addr.s_addr = INADDR_ANY;
     serverAddr.sin_port = htons(serverPort);
