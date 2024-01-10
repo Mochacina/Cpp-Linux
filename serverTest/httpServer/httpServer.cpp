@@ -9,13 +9,7 @@
 #include <ifaddrs.h>
 #include <netdb.h>
 #include <netinet/in.h>
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <unordered_map>
 #include "http-parser.h"
-
-using namespace std;
 
 static void s_handle_client(int client_sock, struct sockaddr_in * client_addr, socklen_t client_addr_len);
 
@@ -69,49 +63,6 @@ int main(int argc, char *args[]) {
     return 0;
 }
 
-/*
-unordered_map<string, string> parseQueryString(const string& queryString) {
-    // 결과를 저장할 unordered_map 선언
-	unordered_map<string, string> params;
-
-	// 입력 문자열을 istringstream을 사용하여 스트림으로 변환
-    istringstream iss(queryString);
-
-	// '&'을 구분자로 사용하여 문자열을 분리하고 반복
-    string param;
-    while (getline(iss, param, '&')) {
-        size_t equalPos = param.find('=');
-        if (equalPos != string::npos) {
-			// 키와 값 추출하여 map에 저장
-            string key = param.substr(0, equalPos);
-            string value = param.substr(equalPos + 1);
-            params[key] = value;
-        } 
-    }
-
-    return params;
-}
-
-// URL의 경로와 매개변수 파싱 함수
-void parsePathAndParameters(const string& url) {
-    size_t questionMarkPos = url.find('?');
-    string path = (questionMarkPos != string::npos) ? url.substr(0, questionMarkPos) : url;
-    string queryString = (questionMarkPos != string::npos) ? url.substr(questionMarkPos + 1) : "";
-
-    cout << "Path: " << path << endl;
-
-    // 쿼리 스트링 파싱
-    unordered_map<string, string> params = parseQueryString(queryString);
-
-    // 파싱된 매개변수 출력
-    std::cout << "Parameters:" << std::endl;
-    for (const auto& param : params) {
-        std::cout << param.first << " = " << param.second << std::endl;
-    }
-}
-*/
-
-
 static void s_handle_client(int client_sock, struct sockaddr_in * client_addr, socklen_t client_addr_len) {
 	int read_len = -1;
 	char header_buffer[2048] = {0,};
@@ -155,9 +106,7 @@ static void s_handle_client(int client_sock, struct sockaddr_in * client_addr, s
 			 "</ul>", client_ip_address, ntohs(client_addr->sin_port), request.method, request.uri, request.protocol);
 
 	send(client_sock, response_header, strlen(response_header), 0);
-	send(client_sock, response_content, strlen(response_content), 0); 
-
-	//parsePathAndParameters(request.uri);
+	send(client_sock, response_content, strlen(response_content), 0);
 
 	releaseHeaderFields(&fields);
 

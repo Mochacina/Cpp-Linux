@@ -85,8 +85,7 @@ static char * s_find(char * str, char m) {
 }
 
 static char * s_rtrim(char * str, size_t size) {
-	size_t i = size - 1;
-	for (; i >= 0; i--) {
+	for (size_t i = size-1; i >= 0; i--) {
 		if (!isspace(str[i])) {
 			break;
 		}
@@ -175,9 +174,9 @@ static int s_parse_header_fields(const char * str, name_value_handler handler, v
 	return 0;
 }
 
-static void s_print_name_value(const char * name, const char * value, void * userData) {
-	printf("NAME: \"%s\" / VALUE: \"%s\"\n", name, value);
-}
+// static void s_print_name_value(const char * name, const char * value, void * userData) {
+// 	printf("NAME: \"%s\" / VALUE: \"%s\"\n", name, value);
+// }
 
 static void s_make_name_value_list(const char * name, const char * value, void * userData) {
 	http_header_fields_t * fields = (http_header_fields_t*)userData;
