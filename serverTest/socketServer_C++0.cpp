@@ -56,9 +56,20 @@ int main(){
         cin >> serverPort;
         if (std::cin.fail()) {
             cout << "입력이 올바른 정수가 아닙니다. 다시 입력해 주세요." << endl;
+
+            // 에러 플래그를 초기화하여 입력 스트림을 정상 상태로 전환
+            cin.clear();
+            
+            // 잘못된 입력 무시
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         } else {
-            cout << "입력한 포트 번호: " << serverPort << endl;
-            break;
+            if(serverPort <= 65000 && 1024 <= serverPort) {
+                cout << "입력한 포트 번호: " << serverPort << endl;
+                break;
+            } else {
+                cout << "정상적인 포트 범위를 입력해 주세요. (1024 ~ 65000)" << endl;
+            }
+            
         }
     }
     serverAddr.sin_family = AF_INET;
