@@ -77,6 +77,23 @@ void TestHandler(const httplib::Request& req, httplib::Response& res) {
     res.set_content("done.\n", "application/json");
 }
 
+void PostHandler(const httplib::Request& req, httplib::Response& res) {
+    std::cout << req.path << std::endl;
+    for(pair<string, string> param : req.params){
+        string key = param.first;
+        string value = param.second;
+
+        cout << key << ": " << value << endl;
+    }
+
+    // Post 응답 문자열
+    std::string response;
+
+    response = R"({"title":"foo","body":"bar","userId":1})";
+
+    res.set_content(response, "application/json");
+}
+
 int main() {
     // cpp-httplib 서버 초기화
     httplib::Server svr;
@@ -86,6 +103,9 @@ int main() {
 
     // 테스트 핸들러 설정
     svr.Get("/test", TestHandler);
+
+    // Post 테스트 핸들러 설정
+    svr.Get("/post", PostHandler);
 
     // 서버 시작
     svr.listen("localhost", 8080);
