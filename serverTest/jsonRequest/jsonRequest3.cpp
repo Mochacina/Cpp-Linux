@@ -89,7 +89,7 @@ int main() {
     int numThreads;
     int count;
 
-    cout << "Enter a Test URL. (If (input).empty(), use the default URL)\n: ";
+    cout << "Enter a Test URL. (If input is empty(), use the default URL)\n: ";
     getline(cin, input);
     cout << "Enter the total number of threads.\n: ";
     cin >> numThreads;
