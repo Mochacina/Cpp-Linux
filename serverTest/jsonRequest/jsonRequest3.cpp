@@ -6,6 +6,9 @@
 
 using namespace std;
 
+int req_T = 0;
+int req_F = 0;
+
 // curl 콜백 함수
 size_t writeCallback(void* contents, size_t size, size_t nmemb, std::string* output) {
     size_t totalSize = size * nmemb;
@@ -60,8 +63,10 @@ void* sendPostRequest(void* arg) {
 
             // 결과 확인 (Response Number 체크하기)
             if (res != CURLE_OK) {
+                req_F += 1;
                 cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << endl;
             } else {
+                req_T += 1;
                 cout << "Thread Number: " << n << " / Count: " << i << endl;
                 std::cout << "Response: " << response << std::endl;
             }
@@ -116,6 +121,9 @@ int main() {
     for (int i = 0; i < numThreads; ++i) {
         pthread_join(threads[i], nullptr);
     }
+
+    cout << "Total Success: " << req_T << endl;
+    cout << "Total Fail: " << req_F << endl;
 
     // libcurl 정리
     curl_global_cleanup();
