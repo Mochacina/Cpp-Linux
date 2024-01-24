@@ -5,9 +5,10 @@
 #include <mutex>
 
 using namespace std;
-
 int req_T = 0;
 int req_F = 0;
+
+string defaultURL = "http://172.16.140.136:10005/eai/internaltest";
 
 // curl 콜백 함수
 size_t writeCallback(void* contents, size_t size, size_t nmemb, std::string* output) {
@@ -18,6 +19,7 @@ size_t writeCallback(void* contents, size_t size, size_t nmemb, std::string* out
 
 string returnString(int i, int n);
 
+// request에 사용할 데이터 구조체
 struct requestObject {
     string url;
     int threadNum;
@@ -35,12 +37,15 @@ void* sendPostRequest(void* arg) {
         CURL* curl;
         CURLcode res;
 
-        //string url = "http://172.16.140.136:10005/eai/internaltest";
-        string url = ((obj->url).empty()) ? "http://172.16.140.136:10005/eai/internaltest" : obj->url;
+        
+        string url = ((obj->url).empty()) ? defaultURL : obj->url;
         string postData = returnString(i,n);
 
         curl = curl_easy_init();
         if (curl) {
+            // Timeout 설정
+            curl_easy_setopt(curl, CURLOPT_TIMEOUT, 10); // 30초로 설정
+
             // URL 설정
             curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
 
@@ -59,16 +64,17 @@ void* sendPostRequest(void* arg) {
             curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
 
             // POST 요청 보내기
+            //cout << "thNum: " << n << " / Request number:" << i << endl;
             res = curl_easy_perform(curl);
 
             // 결과 확인 (Response Number 체크하기)
             if (res != CURLE_OK) {
-                req_F += 1;
                 cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << endl;
+                req_F += 1;
             } else {
-                req_T += 1;
                 cout << "Thread Number: " << n << " / Count: " << i << endl;
-                std::cout << "Response: " << response << std::endl;
+                req_T += 1;
+                //std::cout << "Response: " << response << std::endl;
             }
 
             // HTTP 헤더 정리
@@ -79,6 +85,7 @@ void* sendPostRequest(void* arg) {
         }
     }
 
+    // 메모리 삭제
     delete obj;
 
     pthread_exit(nullptr);
@@ -91,26 +98,43 @@ int main() {
     curl_global_init(CURL_GLOBAL_DEFAULT);
 
     string input;
-    int numThreads;
-    int count;
+    int numThreads = 0;
+    int count = 0;
 
-    cout << "Enter a Test URL. (If input is empty(), use the default URL)\n: ";
+    cout << "Enter a Test URL. (If input is empty(), use the default URL)\n";
+    cout << "default URL = " << defaultURL << "\n: ";
     getline(cin, input);
-    cout << "Enter the total number of threads.\n: ";
-    cin >> numThreads;
-    cout << "Enter the test iterations.\n: ";
-    cin >> count;
+    while(1){
+        cout << "Enter the total number of threads. (Max 1000)\n: ";
+        cin >> numThreads;
+        if(cin.fail() || (numThreads < 1 || numThreads > 1000)){
+            cout << "Invaild value. Try again." << endl;
+            cin.clear(); // 에러 플래그를 초기화하여 입력 스트림을 정상 상태로 전환
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // 잘못된 입력 무시
+        } else break;
+    }
+    while(1){
+        cout << "Enter the test iterations. (Max 1000)\n: ";
+        cin >> count;
+        if(cin.fail() || (count < 1 || count > 1000)){
+            cout << "Invaild value. Try again." << endl;
+            cin.clear(); // 에러 플래그를 초기화하여 입력 스트림을 정상 상태로 전환
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // 잘못된 입력 무시
+        } else break;
+    }
 
     pthread_t threads[numThreads];
 
     // 여러 개의 스레드 생성
     for (int i = 1; i <= numThreads; ++i) {
+        // requestObject 데이터를 전달할 구조체를 동적 메모리에 생성
         requestObject* obj = new requestObject;
         obj->url = input;
         obj->threadNum = i;
         obj->count = count;
 
-        cout << "Request number:" << i << endl;
+        cout << "Create Thread: " << i << endl;
+
         if (pthread_create(&threads[i-1], nullptr, sendPostRequest, (void*)obj) != 0) {
             cerr << "Failed to create thread " << i << endl;
             return 1;
