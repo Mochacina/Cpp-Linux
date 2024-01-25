@@ -92,7 +92,7 @@ int main() {
     return 0;
 }
 
-// 신세계 데이터 형식 문자열 리턴하는 함수
+// 데이터 형식 문자열 리턴하는 함수
 string returnString(int n){
     // "Test_Number": ")" + to_string(n) + R"(",
     string data = R"({

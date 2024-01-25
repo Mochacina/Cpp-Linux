@@ -92,8 +92,6 @@ void* sendPostRequest(void* arg) {
 }
 
 int main() {
-    //const int numThreads = 30; // 생성할 스레드 개수  
-
     // libcurl 초기화
     curl_global_init(CURL_GLOBAL_DEFAULT);
 
@@ -155,7 +153,7 @@ int main() {
     return 0;
 }
 
-// 신세계 데이터 형식 문자열 리턴하는 함수
+// 데이터 형식 문자열 리턴하는 함수
 string returnString(int i, int n){
     // "Test_Number": ")" + to_string(n) + R"(",
     string data = 
