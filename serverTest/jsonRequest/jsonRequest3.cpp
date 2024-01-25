@@ -155,7 +155,6 @@ int main() {
 
 // 데이터 형식 문자열 리턴하는 함수
 string returnString(int i, int n){
-    // "Test_Number": ")" + to_string(n) + R"(",
     string data = 
         R"({
             "Test_Count": ")" + to_string(i) + R"(",
