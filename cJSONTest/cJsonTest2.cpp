@@ -38,11 +38,6 @@ vector<cJSON*> jsonGetArray(cJSON* json, const string& name) {
     return array;
 }
 
-int valueGetter(int val){
-    return val;
-    
-}
-
 int main () {
     string jsonstr1 = R"({
         "number": 1,
@@ -59,64 +54,38 @@ int main () {
         "name": "Awesome 4K",
         "resolutions": [
             {
+                "index": 0,
                 "width": 1280,
                 "height": 720
             },
             {
+                "index": 1,
                 "width": 1920,
                 "height": 1080
             },
             {
+                "index": 2,
                 "width": 3840,
                 "height": 2160
             }
         ]
     })";
 
-    cJSON* jsonData = cJSON_Parse(jsonstr1.c_str());
+    cJSON* jsonData = cJSON_Parse(jsonstr2.c_str());
 
-    if(jsonData == nullptr){
-        cout << "Error: Parse Fail jsonData." << endl;
-        return -1;
-    }
+    string name = jsonGetString(jsonData, "name");
+    vector<cJSON*> resolutions = jsonGetArray(jsonData, "resolutions");
 
-    cJSON* number = cJSON_GetObjectItemCaseSensitive(jsonData, "number");
-    cJSON* testString = cJSON_GetObjectItemCaseSensitive(jsonData, "testString");
-    cJSON* testArray = cJSON_GetObjectItemCaseSensitive(jsonData, "testArray");
-    
-    cout << "==== TEST ====" << endl;
-    cout << cJSON_GetObjectItemCaseSensitive(jsonData, "testString")->valuestring << endl;
-    cout << "==== TEST ====" << endl;
+    cout << "name: " << name << endl;
 
-    if(cJSON_IsNumber(number)){
-        cout << "number: " << number->valueint << endl;
-    } else {
-        cout << "number is not number type." << endl;
-    }
+    for(cJSON* json : resolutions){
+        int index = jsonGetInt(json, "index");
+        int width = jsonGetInt(json, "width");
+        int height = jsonGetInt(json, "height");
 
-    if(cJSON_IsString(testString)){
-        cout << "testString: " << testString->valuestring << endl;
-    } else {
-        cout << "testString is not string type." << endl;
-    }
-
-    if(cJSON_IsArray(testArray)){
-        cout << "testArray:" << endl;
-        for (int i = 0; i < cJSON_GetArraySize(testArray); ++i) {
-            cJSON* item = cJSON_GetArrayItem(testArray, i);
-            cJSON* itemNumberInArray = cJSON_GetObjectItemCaseSensitive(item, "numberInArray");
-            cJSON* itemStringInArray = cJSON_GetObjectItemCaseSensitive(item, "stringInArray");
-
-            if (cJSON_IsNumber(itemNumberInArray)) {
-                cout << " ↘ numberInArray: " << itemNumberInArray->valuedouble << endl;
-            }
-
-            if (cJSON_IsString(itemStringInArray)) {
-                cout << " ↘ stringInArray: " << itemStringInArray->valuestring << endl;
-            }
-        }
-    } else {
-        cout << "testArray is not array." << endl;
+        cout << "index: " << index << endl;
+        cout << "width: " << width << endl;
+        cout << "height: " << height << endl;
     }
 
     // 기타 필요한 코드 및 리소스 정리
