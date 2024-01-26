@@ -6,13 +6,45 @@
 
 using namespace std;
 
+int jsonGetInt(cJSON* json, const string& name){
+    cJSON* item = cJSON_GetObjectItemCaseSensitive(json, name.c_str());
+
+    if (item == nullptr || !cJSON_IsNumber(item)) {
+        throw runtime_error("Key not found or not a number");
+    }
+    return item->valueint;
+}
+
+string jsonGetString(cJSON* json, const string& name){
+    cJSON* item = cJSON_GetObjectItemCaseSensitive(json, name.c_str());
+
+    if (item == nullptr || !cJSON_IsString(item)) {
+        throw runtime_error("Key not found or not a string");
+    }
+    return string(item->valuestring);
+}
+
+vector<cJSON*> jsonGetArray(cJSON* json, const string& name) {
+    cJSON* item = cJSON_GetObjectItemCaseSensitive(json, name.c_str());
+    if (item == nullptr || !cJSON_IsArray(item)) {
+        throw runtime_error("Key not found or not an array");
+    }
+    vector<cJSON*> array;
+    int arraySize = cJSON_GetArraySize(item);
+    for (int i = 0; i < arraySize; ++i) {
+        cJSON* arrayItem = cJSON_GetArrayItem(item, i);
+        array.push_back(arrayItem);
+    }
+    return array;
+}
+
 int valueGetter(int val){
     return val;
     
 }
 
 int main () {
-    string _str = R"({
+    string jsonstr1 = R"({
         "number": 1,
         "testString": "test",
         "testArray": [
@@ -23,7 +55,25 @@ int main () {
         ]
     })";
 
-    cJSON* jsonData = cJSON_Parse(_str.c_str());
+    string jsonstr2 = R"({
+        "name": "Awesome 4K",
+        "resolutions": [
+            {
+                "width": 1280,
+                "height": 720
+            },
+            {
+                "width": 1920,
+                "height": 1080
+            },
+            {
+                "width": 3840,
+                "height": 2160
+            }
+        ]
+    })";
+
+    cJSON* jsonData = cJSON_Parse(jsonstr1.c_str());
 
     if(jsonData == nullptr){
         cout << "Error: Parse Fail jsonData." << endl;
