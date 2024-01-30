@@ -1,0 +1,85 @@
+Performing C SOURCE FILE Test OPT_Wenum_conversion failed with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_4bccb/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_4bccb.dir/build.make CMakeFiles/cmTC_4bccb.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4bccb.dir/src.c.o
+/usr/bin/cc -DOPT_Wenum_conversion  -Wall    -Wenum-conversion -o CMakeFiles/cmTC_4bccb.dir/src.c.o -c /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command line option '-Wenum-conversion'; did you mean '-Wno-conversion'?
+gmake[1]: *** [CMakeFiles/cmTC_4bccb.dir/build.make:78: CMakeFiles/cmTC_4bccb.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_4bccb/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Determining if the explicit_memset exist failed with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_2545e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_2545e.dir/build.make CMakeFiles/cmTC_2545e.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2545e.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -o CMakeFiles/cmTC_2545e.dir/CheckSymbolExists.c.o -c /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘explicit_memset’ undeclared (first use in this function); did you mean ‘explicit_bzero’?
+   return ((int*)(&explicit_memset))[argc];
+                   ^~~~~~~~~~~~~~~
+                   explicit_bzero
+/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:4:14: warning: parameter ‘argc’ set but not used [-Wunused-but-set-parameter]
+ int main(int argc, char** argv)
+          ~~~~^~~~
+gmake[1]: *** [CMakeFiles/cmTC_2545e.dir/build.make:78: CMakeFiles/cmTC_2545e.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_2545e/fast] Error 2
+
+
+File /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef explicit_memset
+  return ((int*)(&explicit_memset))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the memset_s exist failed with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_0302b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_0302b.dir/build.make CMakeFiles/cmTC_0302b.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0302b.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -o CMakeFiles/cmTC_0302b.dir/CheckSymbolExists.c.o -c /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘memset_s’ undeclared (first use in this function); did you mean ‘memset’?
+   return ((int*)(&memset_s))[argc];
+                   ^~~~~~~~
+                   memset
+/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:4:14: warning: parameter ‘argc’ set but not used [-Wunused-but-set-parameter]
+ int main(int argc, char** argv)
+          ~~~~^~~~
+gmake[1]: *** [CMakeFiles/cmTC_0302b.dir/build.make:78: CMakeFiles/cmTC_0302b.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_0302b/fast] Error 2
+
+
+File /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef memset_s
+  return ((int*)(&memset_s))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}

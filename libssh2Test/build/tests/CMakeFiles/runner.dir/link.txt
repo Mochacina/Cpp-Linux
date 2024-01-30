@@ -1,0 +1,2 @@
+/usr/bin/ar qc librunner.a CMakeFiles/runner.dir/runner.c.o CMakeFiles/runner.dir/session_fixture.c.o CMakeFiles/runner.dir/openssh_fixture.c.o
+/usr/bin/ranlib librunner.a

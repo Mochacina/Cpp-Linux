@@ -1,0 +1,603 @@
+The system is: Linux - 5.15.133.1-microsoft-standard-WSL2 - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/3.20.2/CompilerIdC/a.out"
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1054a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1054a.dir/build.make CMakeFiles/cmTC_1054a.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1054a.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc   -v -o CMakeFiles/cmTC_1054a.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+OFFLOAD_TARGET_NAMES=nvptx-none
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-redhat-linux
+Configured with: ../configure --enable-bootstrap --enable-languages=c,c++,fortran,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl --disable-libmpx --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux
+Thread model: posix
+gcc version 8.5.0 20210514 (Red Hat 8.5.0-20.0.1) (GCC) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_1054a.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+ /usr/libexec/gcc/x86_64-redhat-linux/8/cc1 -quiet -v /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_1054a.dir/CMakeCCompilerABI.c.o -version -o /tmp/ccvWf4Nw.s
+GNU C17 (GCC) version 8.5.0 20210514 (Red Hat 8.5.0-20.0.1) (x86_64-redhat-linux)
+	compiled by GNU C version 8.5.0 20210514 (Red Hat 8.5.0-20.0.1), GMP version 6.1.2, MPFR version 3.1.6-p2, MPC version 1.1.0, isl version isl-0.16.1-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/8/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/8/../../../../x86_64-redhat-linux/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/lib/gcc/x86_64-redhat-linux/8/include
+ /usr/local/include
+ /usr/include
+End of search list.
+GNU C17 (GCC) version 8.5.0 20210514 (Red Hat 8.5.0-20.0.1) (x86_64-redhat-linux)
+	compiled by GNU C version 8.5.0 20210514 (Red Hat 8.5.0-20.0.1), GMP version 6.1.2, MPFR version 3.1.6-p2, MPC version 1.1.0, isl version isl-0.16.1-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: cd0f72ecbc78ce26125ed7952e241d14
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_1054a.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+ as -v --64 -o CMakeFiles/cmTC_1054a.dir/CMakeCCompilerABI.c.o /tmp/ccvWf4Nw.s
+GNU assembler version 2.30 (x86_64-redhat-linux) using BFD version version 2.30-119.0.2.el8_8.2
+COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_1054a.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+Linking C executable cmTC_1054a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1054a.dir/link.txt --verbose=1
+/usr/bin/cc  -v -rdynamic CMakeFiles/cmTC_1054a.dir/CMakeCCompilerABI.c.o -o cmTC_1054a 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-redhat-linux
+Configured with: ../configure --enable-bootstrap --enable-languages=c,c++,fortran,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl --disable-libmpx --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux
+Thread model: posix
+gcc version 8.5.0 20210514 (Red Hat 8.5.0-20.0.1) (GCC) 
+COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_1054a' '-mtune=generic' '-march=x86-64'
+ /usr/libexec/gcc/x86_64-redhat-linux/8/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/8/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper -plugin-opt=-fresolution=/tmp/cc9pO3Cr.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_1054a /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/8/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/8 -L/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/8/../../.. CMakeFiles/cmTC_1054a.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-redhat-linux/8/crtend.o /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_1054a' '-mtune=generic' '-march=x86-64'
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/usr/lib/gcc/x86_64-redhat-linux/8/include]
+    add: [/usr/local/include]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/usr/lib/gcc/x86_64-redhat-linux/8/include] ==> [/usr/lib/gcc/x86_64-redhat-linux/8/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/usr/lib/gcc/x86_64-redhat-linux/8/include;/usr/local/include;/usr/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1054a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1054a.dir/build.make CMakeFiles/cmTC_1054a.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_1054a.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_1054a.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-redhat-linux]
+  ignore line: [Configured with: ../configure --enable-bootstrap --enable-languages=c c++ fortran lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl --disable-libmpx --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.5.0 20210514 (Red Hat 8.5.0-20.0.1) (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_1054a.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+  ignore line: [ /usr/libexec/gcc/x86_64-redhat-linux/8/cc1 -quiet -v /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_1054a.dir/CMakeCCompilerABI.c.o -version -o /tmp/ccvWf4Nw.s]
+  ignore line: [GNU C17 (GCC) version 8.5.0 20210514 (Red Hat 8.5.0-20.0.1) (x86_64-redhat-linux)]
+  ignore line: [	compiled by GNU C version 8.5.0 20210514 (Red Hat 8.5.0-20.0.1)  GMP version 6.1.2  MPFR version 3.1.6-p2  MPC version 1.1.0  isl version isl-0.16.1-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/8/include-fixed"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/8/../../../../x86_64-redhat-linux/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/8/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C17 (GCC) version 8.5.0 20210514 (Red Hat 8.5.0-20.0.1) (x86_64-redhat-linux)]
+  ignore line: [	compiled by GNU C version 8.5.0 20210514 (Red Hat 8.5.0-20.0.1)  GMP version 6.1.2  MPFR version 3.1.6-p2  MPC version 1.1.0  isl version isl-0.16.1-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: cd0f72ecbc78ce26125ed7952e241d14]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_1054a.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+  ignore line: [ as -v --64 -o CMakeFiles/cmTC_1054a.dir/CMakeCCompilerABI.c.o /tmp/ccvWf4Nw.s]
+  ignore line: [GNU assembler version 2.30 (x86_64-redhat-linux) using BFD version version 2.30-119.0.2.el8_8.2]
+  ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_1054a.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+  ignore line: [Linking C executable cmTC_1054a]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1054a.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc  -v -rdynamic CMakeFiles/cmTC_1054a.dir/CMakeCCompilerABI.c.o -o cmTC_1054a ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-redhat-linux]
+  ignore line: [Configured with: ../configure --enable-bootstrap --enable-languages=c c++ fortran lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl --disable-libmpx --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.5.0 20210514 (Red Hat 8.5.0-20.0.1) (GCC) ]
+  ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_1054a' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/libexec/gcc/x86_64-redhat-linux/8/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/8/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper -plugin-opt=-fresolution=/tmp/cc9pO3Cr.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_1054a /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/8/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/8 -L/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/8/../../.. CMakeFiles/cmTC_1054a.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-redhat-linux/8/crtend.o /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crtn.o]
+    arg [/usr/libexec/gcc/x86_64-redhat-linux/8/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/libexec/gcc/x86_64-redhat-linux/8/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cc9pO3Cr.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--no-add-needed] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_1054a] ==> ignore
+    arg [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crt1.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crt1.o]
+    arg [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crti.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crti.o]
+    arg [/usr/lib/gcc/x86_64-redhat-linux/8/crtbegin.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/8/crtbegin.o]
+    arg [-L/usr/lib/gcc/x86_64-redhat-linux/8] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/8]
+    arg [-L/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/usr/lib/gcc/x86_64-redhat-linux/8/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../..]
+    arg [CMakeFiles/cmTC_1054a.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/usr/lib/gcc/x86_64-redhat-linux/8/crtend.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/8/crtend.o]
+    arg [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crtn.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crtn.o]
+  collapse obj [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crt1.o] ==> [/usr/lib64/crt1.o]
+  collapse obj [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crti.o] ==> [/usr/lib64/crti.o]
+  collapse obj [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crtn.o] ==> [/usr/lib64/crtn.o]
+  collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/8] ==> [/usr/lib/gcc/x86_64-redhat-linux/8]
+  collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64] ==> [/usr/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../..] ==> [/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit objs: [/usr/lib64/crt1.o;/usr/lib64/crti.o;/usr/lib/gcc/x86_64-redhat-linux/8/crtbegin.o;/usr/lib/gcc/x86_64-redhat-linux/8/crtend.o;/usr/lib64/crtn.o]
+  implicit dirs: [/usr/lib/gcc/x86_64-redhat-linux/8;/usr/lib64;/lib64;/usr/lib]
+  implicit fwks: []
+
+
+Performing C SOURCE FILE Test OPT_Wdouble_promotion succeeded with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_dd87c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_dd87c.dir/build.make CMakeFiles/cmTC_dd87c.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dd87c.dir/src.c.o
+/usr/bin/cc -DOPT_Wdouble_promotion  -Wall    -Wdouble-promotion -o CMakeFiles/cmTC_dd87c.dir/src.c.o -c /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_dd87c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dd87c.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall  -rdynamic CMakeFiles/cmTC_dd87c.dir/src.c.o -o cmTC_dd87c 
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test OPT_Wunused_const_variable succeeded with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_be0b1/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_be0b1.dir/build.make CMakeFiles/cmTC_be0b1.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_be0b1.dir/src.c.o
+/usr/bin/cc -DOPT_Wunused_const_variable  -Wall    -Wunused-const-variable -o CMakeFiles/cmTC_be0b1.dir/src.c.o -c /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_be0b1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_be0b1.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall  -rdynamic CMakeFiles/cmTC_be0b1.dir/src.c.o -o cmTC_be0b1 
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Determining if the function socket exists passed with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_0ecad/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_0ecad.dir/build.make CMakeFiles/cmTC_0ecad.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0ecad.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable -DCHECK_FUNCTION_EXISTS=socket -o CMakeFiles/cmTC_0ecad.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_0ecad
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0ecad.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable -DCHECK_FUNCTION_EXISTS=socket -rdynamic CMakeFiles/cmTC_0ecad.dir/CheckFunctionExists.c.o -o cmTC_0ecad 
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function inet_addr exists passed with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d5a7d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d5a7d.dir/build.make CMakeFiles/cmTC_d5a7d.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d5a7d.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable -DCHECK_FUNCTION_EXISTS=inet_addr -o CMakeFiles/cmTC_d5a7d.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d5a7d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d5a7d.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable -DCHECK_FUNCTION_EXISTS=inet_addr -rdynamic CMakeFiles/cmTC_d5a7d.dir/CheckFunctionExists.c.o -o cmTC_d5a7d 
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if files inttypes.h exist passed with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_6180e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_6180e.dir/build.make CMakeFiles/cmTC_6180e.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6180e.dir/HAVE_INTTYPES_H.c.o
+/usr/bin/cc   -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -o CMakeFiles/cmTC_6180e.dir/HAVE_INTTYPES_H.c.o -c /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CheckIncludeFiles/HAVE_INTTYPES_H.c
+Linking C executable cmTC_6180e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6180e.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -rdynamic CMakeFiles/cmTC_6180e.dir/HAVE_INTTYPES_H.c.o -o cmTC_6180e 
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if files unistd.h exist passed with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_af0ea/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_af0ea.dir/build.make CMakeFiles/cmTC_af0ea.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_af0ea.dir/HAVE_UNISTD_H.c.o
+/usr/bin/cc   -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -o CMakeFiles/cmTC_af0ea.dir/HAVE_UNISTD_H.c.o -c /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CheckIncludeFiles/HAVE_UNISTD_H.c
+Linking C executable cmTC_af0ea
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_af0ea.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -rdynamic CMakeFiles/cmTC_af0ea.dir/HAVE_UNISTD_H.c.o -o cmTC_af0ea 
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if files sys/time.h exist passed with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_8a55d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_8a55d.dir/build.make CMakeFiles/cmTC_8a55d.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8a55d.dir/HAVE_SYS_TIME_H.c.o
+/usr/bin/cc   -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -o CMakeFiles/cmTC_8a55d.dir/HAVE_SYS_TIME_H.c.o -c /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_TIME_H.c
+Linking C executable cmTC_8a55d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8a55d.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -rdynamic CMakeFiles/cmTC_8a55d.dir/HAVE_SYS_TIME_H.c.o -o cmTC_8a55d 
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if files sys/param.h exist passed with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_191e8/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_191e8.dir/build.make CMakeFiles/cmTC_191e8.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_191e8.dir/HAVE_SYS_PARAM_H.c.o
+/usr/bin/cc   -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -o CMakeFiles/cmTC_191e8.dir/HAVE_SYS_PARAM_H.c.o -c /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_PARAM_H.c
+Linking C executable cmTC_191e8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_191e8.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -rdynamic CMakeFiles/cmTC_191e8.dir/HAVE_SYS_PARAM_H.c.o -o cmTC_191e8 
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if files sys/select.h exist passed with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5c5e0/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5c5e0.dir/build.make CMakeFiles/cmTC_5c5e0.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5c5e0.dir/HAVE_SYS_SELECT_H.c.o
+/usr/bin/cc   -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -o CMakeFiles/cmTC_5c5e0.dir/HAVE_SYS_SELECT_H.c.o -c /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_SELECT_H.c
+Linking C executable cmTC_5c5e0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5c5e0.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -rdynamic CMakeFiles/cmTC_5c5e0.dir/HAVE_SYS_SELECT_H.c.o -o cmTC_5c5e0 
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if files sys/uio.h exist passed with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9c94a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9c94a.dir/build.make CMakeFiles/cmTC_9c94a.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9c94a.dir/HAVE_SYS_UIO_H.c.o
+/usr/bin/cc   -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -o CMakeFiles/cmTC_9c94a.dir/HAVE_SYS_UIO_H.c.o -c /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_UIO_H.c
+Linking C executable cmTC_9c94a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9c94a.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -rdynamic CMakeFiles/cmTC_9c94a.dir/HAVE_SYS_UIO_H.c.o -o cmTC_9c94a 
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if files sys/socket.h exist passed with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_2279e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_2279e.dir/build.make CMakeFiles/cmTC_2279e.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2279e.dir/HAVE_SYS_SOCKET_H.c.o
+/usr/bin/cc   -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -o CMakeFiles/cmTC_2279e.dir/HAVE_SYS_SOCKET_H.c.o -c /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_SOCKET_H.c
+Linking C executable cmTC_2279e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2279e.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -rdynamic CMakeFiles/cmTC_2279e.dir/HAVE_SYS_SOCKET_H.c.o -o cmTC_2279e 
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if files sys/ioctl.h exist passed with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_94937/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_94937.dir/build.make CMakeFiles/cmTC_94937.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_94937.dir/HAVE_SYS_IOCTL_H.c.o
+/usr/bin/cc   -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -o CMakeFiles/cmTC_94937.dir/HAVE_SYS_IOCTL_H.c.o -c /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_IOCTL_H.c
+Linking C executable cmTC_94937
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_94937.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -rdynamic CMakeFiles/cmTC_94937.dir/HAVE_SYS_IOCTL_H.c.o -o cmTC_94937 
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if files sys/un.h exist passed with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_970ec/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_970ec.dir/build.make CMakeFiles/cmTC_970ec.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_970ec.dir/HAVE_SYS_UN_H.c.o
+/usr/bin/cc   -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -o CMakeFiles/cmTC_970ec.dir/HAVE_SYS_UN_H.c.o -c /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_UN_H.c
+Linking C executable cmTC_970ec
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_970ec.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -rdynamic CMakeFiles/cmTC_970ec.dir/HAVE_SYS_UN_H.c.o -o cmTC_970ec 
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if files arpa/inet.h exist passed with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d2e76/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d2e76.dir/build.make CMakeFiles/cmTC_d2e76.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d2e76.dir/HAVE_ARPA_INET_H.c.o
+/usr/bin/cc   -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -o CMakeFiles/cmTC_d2e76.dir/HAVE_ARPA_INET_H.c.o -c /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CheckIncludeFiles/HAVE_ARPA_INET_H.c
+Linking C executable cmTC_d2e76
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d2e76.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -rdynamic CMakeFiles/cmTC_d2e76.dir/HAVE_ARPA_INET_H.c.o -o cmTC_d2e76 
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if files netinet/in.h exist passed with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ecb07/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ecb07.dir/build.make CMakeFiles/cmTC_ecb07.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ecb07.dir/HAVE_NETINET_IN_H.c.o
+/usr/bin/cc   -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -o CMakeFiles/cmTC_ecb07.dir/HAVE_NETINET_IN_H.c.o -c /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CheckIncludeFiles/HAVE_NETINET_IN_H.c
+Linking C executable cmTC_ecb07
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ecb07.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -rdynamic CMakeFiles/cmTC_ecb07.dir/HAVE_NETINET_IN_H.c.o -o cmTC_ecb07 
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the gettimeofday exist passed with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_b554e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_b554e.dir/build.make CMakeFiles/cmTC_b554e.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b554e.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -o CMakeFiles/cmTC_b554e.dir/CheckSymbolExists.c.o -c /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:11: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+   return ((int*)(&gettimeofday))[argc];
+           ^
+Linking C executable cmTC_b554e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b554e.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -rdynamic CMakeFiles/cmTC_b554e.dir/CheckSymbolExists.c.o -o cmTC_b554e 
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef gettimeofday
+  return ((int*)(&gettimeofday))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strtoll exist passed with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_aa14f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_aa14f.dir/build.make CMakeFiles/cmTC_aa14f.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_aa14f.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -o CMakeFiles/cmTC_aa14f.dir/CheckSymbolExists.c.o -c /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:11: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+   return ((int*)(&strtoll))[argc];
+           ^
+Linking C executable cmTC_aa14f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aa14f.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -rdynamic CMakeFiles/cmTC_aa14f.dir/CheckSymbolExists.c.o -o cmTC_aa14f 
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strtoll
+  return ((int*)(&strtoll))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the snprintf exist passed with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_fc787/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_fc787.dir/build.make CMakeFiles/cmTC_fc787.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fc787.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -o CMakeFiles/cmTC_fc787.dir/CheckSymbolExists.c.o -c /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:11: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+   return ((int*)(&snprintf))[argc];
+           ^
+Linking C executable cmTC_fc787
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fc787.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -rdynamic CMakeFiles/cmTC_fc787.dir/CheckSymbolExists.c.o -o cmTC_fc787 
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef snprintf
+  return ((int*)(&snprintf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the explicit_bzero exist passed with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_481ce/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_481ce.dir/build.make CMakeFiles/cmTC_481ce.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_481ce.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -o CMakeFiles/cmTC_481ce.dir/CheckSymbolExists.c.o -c /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:11: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
+   return ((int*)(&explicit_bzero))[argc];
+           ^
+Linking C executable cmTC_481ce
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_481ce.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -rdynamic CMakeFiles/cmTC_481ce.dir/CheckSymbolExists.c.o -o cmTC_481ce 
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef explicit_bzero
+  return ((int*)(&explicit_bzero))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the function poll exists passed with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_698bc/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_698bc.dir/build.make CMakeFiles/cmTC_698bc.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_698bc.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable -DCHECK_FUNCTION_EXISTS=poll -o CMakeFiles/cmTC_698bc.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_698bc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_698bc.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable -DCHECK_FUNCTION_EXISTS=poll -rdynamic CMakeFiles/cmTC_698bc.dir/CheckFunctionExists.c.o -o cmTC_698bc 
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function select exists passed with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_fcfa8/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_fcfa8.dir/build.make CMakeFiles/cmTC_fcfa8.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fcfa8.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable -DCHECK_FUNCTION_EXISTS=select -o CMakeFiles/cmTC_fcfa8.dir/CheckFunctionExists.c.o -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_fcfa8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fcfa8.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable -DCHECK_FUNCTION_EXISTS=select -rdynamic CMakeFiles/cmTC_fcfa8.dir/CheckFunctionExists.c.o -o cmTC_fcfa8 
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Performing C SOURCE FILE Test HAVE_O_NONBLOCK succeeded with the following output:
+Change Dir: /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_030cc/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_030cc.dir/build.make CMakeFiles/cmTC_030cc.dir/build
+gmake[1]: Entering directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_030cc.dir/src.c.o
+/usr/bin/cc -DHAVE_O_NONBLOCK  -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -o CMakeFiles/cmTC_030cc.dir/src.c.o -c /home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_030cc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_030cc.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall  -W -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wmissing-parameter-type -Wold-style-declaration -Wstrict-aliasing=3 -Wformat=2 -Warray-bounds=2 -ftree-vrp -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Walloc-zero -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=1 -Wrestrict -Wdouble-promotion -Wunused-const-variable  -rdynamic CMakeFiles/cmTC_030cc.dir/src.c.o -o cmTC_030cc 
+gmake[1]: Leaving directory '/home/sohss/Cpp-Linux/libssh2Test/libssh2-1.11.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <unistd.h>
+#include <fcntl.h>
+
+#if defined(sun) || defined(__sun__) || defined(__SUNPRO_C) || defined(__SUNPRO_CC)
+# if defined(__SVR4) || defined(__srv4__)
+#  define PLATFORM_SOLARIS
+# else
+#  define PLATFORM_SUNOS4
+# endif
+#endif
+#if (defined(_AIX) || defined(__xlC__)) && !defined(_AIX41)
+# define PLATFORM_AIX_V3
+#endif
+
+#if defined(PLATFORM_SUNOS4) || defined(PLATFORM_AIX_V3) || defined(__BEOS__)
+#error "O_NONBLOCK does not work on this platform"
+#endif
+
+int main(void)
+{
+    int socket = 0;
+    (void)fcntl(socket, F_SETFL, O_NONBLOCK);
+}
