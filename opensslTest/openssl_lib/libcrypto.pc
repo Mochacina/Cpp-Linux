@@ -1,0 +1,11 @@
+libdir=/home/sohss/openssl
+includedir=/home/sohss/openssl/include
+enginesdir=/home/sohss/openssl/engines
+modulesdir=/home/sohss/openssl/providers
+
+Name: OpenSSL-libcrypto
+Description: OpenSSL cryptography library
+Version: 3.3.0-dev
+Libs: -L${libdir} -lcrypto
+Libs.private: -ldl -pthread
+Cflags: -I${includedir}
