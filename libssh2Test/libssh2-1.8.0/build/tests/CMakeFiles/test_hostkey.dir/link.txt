@@ -1,1 +1,0 @@
-/usr/bin/cc  -Wall -rdynamic CMakeFiles/test_hostkey.dir/test_hostkey.c.o -o test_hostkey  ../src/libssh2.a librunner.a libsession_fixture.a ../src/libssh2.a -lssl -lcrypto libopenssh_fixture.a 

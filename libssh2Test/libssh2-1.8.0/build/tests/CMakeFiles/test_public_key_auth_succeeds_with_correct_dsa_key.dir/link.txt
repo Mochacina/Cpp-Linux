@@ -1,1 +1,0 @@
-/usr/bin/cc  -Wall -rdynamic CMakeFiles/test_public_key_auth_succeeds_with_correct_dsa_key.dir/test_public_key_auth_succeeds_with_correct_dsa_key.c.o -o test_public_key_auth_succeeds_with_correct_dsa_key  ../src/libssh2.a librunner.a libsession_fixture.a ../src/libssh2.a -lssl -lcrypto libopenssh_fixture.a 

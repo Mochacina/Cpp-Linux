@@ -1,1 +1,0 @@
-/usr/bin/cc  -Wall -rdynamic CMakeFiles/example-tcpip-forward.dir/tcpip-forward.c.o -o example-tcpip-forward  ../src/libssh2.a -lssl -lcrypto 
