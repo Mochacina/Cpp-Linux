@@ -1,1 +1,0 @@
-/usr/bin/cc  -Wall -rdynamic CMakeFiles/example-sftp_write_sliding.dir/sftp_write_sliding.c.o -o example-sftp_write_sliding  ../src/libssh2.a -lssl -lcrypto 

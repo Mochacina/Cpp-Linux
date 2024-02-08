@@ -1,1 +1,0 @@
-/usr/bin/cc  -Wall -rdynamic CMakeFiles/test_keyboard_interactive_auth_fails_with_wrong_response.dir/test_keyboard_interactive_auth_fails_with_wrong_response.c.o -o test_keyboard_interactive_auth_fails_with_wrong_response  ../src/libssh2.a librunner.a libsession_fixture.a ../src/libssh2.a -lssl -lcrypto libopenssh_fixture.a 
