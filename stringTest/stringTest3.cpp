@@ -8,7 +8,7 @@ int main() {
     memset(atmCashP, 0x00, sizeof(atmCashP));
 
     char bufferQty[4+1] = "0000";
-    char bufferAmt[9+1] = "000000000";
+    char bufferAmt[10+1] = "0000000000";
 
     char data[5+1] = {0,};
 
@@ -24,7 +24,7 @@ int main() {
 
     cout << bufferQty << endl;
 
-    sprintf(bufferAmt, "%09d", sum*1000);
+    sprintf(bufferAmt, "%010d", sum*1000);
 
     cout << bufferAmt << endl;
 }
