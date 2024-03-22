@@ -69,5 +69,6 @@
         "typeindex": "cpp",
         "valarray": "cpp",
         "variant": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "C:/Dev/workspace/Cpp-Linux/libssh2Test/libssh2-1.11.0"
 }
