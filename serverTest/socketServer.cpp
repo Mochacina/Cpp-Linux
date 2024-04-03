@@ -50,6 +50,11 @@ int main(){
 
     memset(&serverAddr, 0, sizeof(serverAddr)); // sockaddr_in 초기화
 
+    string input;
+    cout << "서버의 Port Number를 입력하세요 (Default: 7000): ";
+    getline(cin, input);
+    int serverPort = (input.empty()) ? 7000 : stoi(input);
+
     serverAddr.sin_family = AF_INET;
     serverAddr.sin_addr.s_addr = INADDR_ANY;
     serverAddr.sin_port = htons(serverPort);
@@ -64,11 +69,9 @@ int main(){
         return 1;
     }
 
-    int serverPort = 7000;
+    
 
     listen(server_socket, 5); // 5는 백로그 크기 = 동시에 처리 가능한 연결 요청의 최대 수
-    cout << "서버의 Port Number를 입력하세요 (Default: 7000):";
-    getline(cin, serverPort);
     cout << "서버가 "<< serverPort << " 포트에서 대기 중..." << endl;
 
     pthread_t thread_listen; // 클라이언트 연결 요청을 수락할 스레드 생성
