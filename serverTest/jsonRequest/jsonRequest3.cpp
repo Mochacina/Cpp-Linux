@@ -92,7 +92,7 @@ void* sendPostRequest(void* arg) {
 }
 
 int main() {
-    // libcurl 초기화
+        // libcurl 초기화
     curl_global_init(CURL_GLOBAL_DEFAULT);
 
     string input;
