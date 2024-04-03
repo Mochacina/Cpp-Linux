@@ -68,9 +68,7 @@ int main(){
         close(server_socket);
         return 1;
     }
-
     
-
     listen(server_socket, 5); // 5는 백로그 크기 = 동시에 처리 가능한 연결 요청의 최대 수
     cout << "서버가 "<< serverPort << " 포트에서 대기 중..." << endl;
 
