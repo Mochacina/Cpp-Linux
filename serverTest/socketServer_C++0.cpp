@@ -69,7 +69,6 @@ int main(){
             } else {
                 cout << "정상적인 포트 범위를 입력해 주세요. (1024 ~ 65000)" << endl;
             }
-            
         }
     }
     serverAddr.sin_family = AF_INET;
