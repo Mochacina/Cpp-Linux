@@ -68,7 +68,12 @@
         "cinttypes": "cpp",
         "typeindex": "cpp",
         "valarray": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "cfenv": "cpp",
+        "charconv": "cpp",
+        "csetjmp": "cpp",
+        "cuchar": "cpp",
+        "scoped_allocator": "cpp"
     },
     "cmake.sourceDirectory": "C:/Dev/workspace/Cpp-Linux/libssh2Test/libssh2-1.11.0"
 }

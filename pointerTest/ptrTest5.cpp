@@ -1,14 +1,17 @@
 #include <bits/stdc++.h>
 
 int main(){
-    int* l = new int[10];
-    for(int i=0; i<10; i++){
-        l[i] = i;
+    int n = 0;
+    std::cin >> n;
+    //std::cin.tie(0);
+    std::vector<std::string> l(n);
+    for(int i=0; i<n; i++){
+        std::cout << "Enter name: ";
+        std::cin >> l[i];
     }
-    for(int i : l){
+    for(std::string i : l){
         std::cout << i << std::endl;
     }
 
-    delete[] l;
     return 0;
 }
