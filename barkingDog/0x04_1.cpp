@@ -18,8 +18,6 @@ void traverse(){
     cout << '\n\n';
 }
 
-
-
 void insert(int addr, int num){
     dat[unused] = num;
     pre[unused] = addr;
