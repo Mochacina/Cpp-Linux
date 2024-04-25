@@ -3,6 +3,9 @@
 // 부모 클래스 Parent 정의
 class Parent {
 public:
+    Parent (){
+        std::cout << "Parent Created." << std::endl;
+    }
     virtual void show() {  // 가상 함수 정의
         std::cout << "Parent class show function" << std::endl;
     }
@@ -17,6 +20,9 @@ public:
 // 자식 클래스 Child 정의
 class Child : public Parent {
 public:
+    Child (){
+        std::cout << "Child Created." << std::endl;
+    }
     void show() override {  // 부모 클래스의 함수를 오버라이드
         std::cout << "Child class show function" << std::endl;
     }
@@ -35,14 +41,14 @@ int main() {
 
     std::cout << "---------\n";
 
-    Parent* pc = new Child();  // Parent 타입의 포인터로 Child 객체 생성
+    Parent* pc = new Child();  // Parent 타입의 포인터로 Child 객체 생성. Parent 생성자 -> Child 생성자
     pc->show();  // 다형성을 통해 Child의 show 함수 호출
     pc->parentOnly();  // Parent 클래스의 parentOnly 함수 호출
     //pc->childOnly();  // Parent 클래스에는 childOnly 함수가 없으므로 호출 불가능
 
     std::cout << "---------\n";
 
-    Child* c = new Child;  // Child 객체 생성
+    Child* c = new Child;  // Child 객체 생성. Parent 생성자 -> Child 생성자
     c->show();  // Child 클래스의 show 함수 호출
     c->parentOnly();  // Parent 클래스의 parentOnly 함수 호출
     c->childOnly();  // Child 클래스의 childOnly 함수 호출
