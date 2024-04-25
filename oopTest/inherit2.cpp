@@ -29,9 +29,9 @@ public:
 };
 
 int main() {
-    Parent* p = new Parent();
-    p->show();
-    p->parentOnly();
+    Parent* p = new Parent();   // Parent 타입의 포인터로 Parent 객체 생성
+    p->show();                  // Parent의 show 함수 호출
+    p->parentOnly();            // Parent 클래스의 parentOnly 함수 호출
 
     std::cout << "---------\n";
 
@@ -48,9 +48,10 @@ int main() {
     c->childOnly();  // Child 클래스의 childOnly 함수 호출
 
     std::cout << "---------\n";
-
     delete p;   // 할당된 메모리 해제, Parent의 소멸자 호출
+    std::cout << "---------\n";
     delete pc;  // 할당된 메모리 해제, Child의 소멸자를 호출한 후 Parent의 소멸자 호출
+    std::cout << "---------\n";
     delete c;  // 할당된 메모리 해제, Child의 소멸자를 호출한 후 Parent의 소멸자 호출
     return 0;
 }
