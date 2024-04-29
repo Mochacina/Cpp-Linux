@@ -18,5 +18,10 @@ int main() {
 
     std::cout << buffer << std::setw(3) << std::setfill('0') << (tv.tv_usec / 1000) << std::endl;  // 밀리세컨드 추가
 
+    char buffer2[17+1];
+    sprintf(buffer2, "%s%03d", buffer, (int)(tv.tv_usec / 1000));
+
+    std::cout << buffer2 << std::endl;
+
     return 0;
 }
