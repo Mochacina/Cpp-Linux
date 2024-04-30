@@ -1,23 +1,23 @@
-#define _CRT_SECURE_NO_WARNINGS // í˜¹ì€ localtime_së¥¼ ì‚¬ìš©
+#define _CRT_SECURE_NO_WARNINGS // È¤Àº localtime_s¸¦ »ç¿ë
 #include <stdio.h>
 #include <time.h>
 
 int main() {
     time_t timer;
     struct tm* t;
-    timer = time(NULL); // 1970ë…„ 1ì›” 1ì¼ 0ì‹œ 0ë¶„ 0ì´ˆë¶€í„° ì‹œì‘í•˜ì—¬ í˜„ì¬ê¹Œì§€ì˜ ì´ˆ
-    t = localtime(&timer); // í¬ë§·íŒ…ì„ ìœ„í•´ êµ¬ì¡°ì²´ì— ë„£ê¸°
+    timer = time(NULL); // 1970³â 1¿ù 1ÀÏ 0½Ã 0ºĞ 0ÃÊºÎÅÍ ½ÃÀÛÇÏ¿© ÇöÀç±îÁöÀÇ ÃÊ
+    t = localtime(&timer); // Æ÷¸ËÆÃÀ» À§ÇØ ±¸Á¶Ã¼¿¡ ³Ö±â
     
-    printf("ìœ ë‹‰ìŠ¤ íƒ€ì„ (Unix Time): %lld ì´ˆ\n\n", timer); 
-    printf("í˜„ì¬ ë…„: %d\n", t->tm_year + 1900);
-    printf("í˜„ì¬ ì›”: %d\n", t->tm_mon + 1);
-    printf("í˜„ì¬ ì¼: %d\n", t->tm_mday);
-    printf("í˜„ì¬ ì‹œ: %d\n", t->tm_hour);
-    printf("í˜„ì¬ ë¶„: %d\n", t->tm_min);
-    printf("í˜„ì¬ ì´ˆ: %d\n", t->tm_sec);
-    printf("í˜„ì¬ ìš”ì¼: %d\n", t->tm_wday); // ì¼=0, ì›”=1, í™”=2, ìˆ˜=3, ëª©=4, ê¸ˆ=5, í† =6
-    printf("ì˜¬í•´ ëª‡ ë²ˆì§¸ ë‚ : %d\n", t->tm_yday); // 1ì›” 1ì¼ì€ 0, 1ì›” 2ì¼ì€ 1
-    printf("ì„œë¨¸íƒ€ì„ ì ìš© ì—¬ë¶€: %d\n", t->tm_isdst); // ì‹¤ì‹œ ì¤‘ì´ë©´ ì–‘ìˆ˜, ë¯¸ì‹¤ì‹œë©´ 0, ì‹¤ì‹œ ì •ë³´ê°€ ì—†ìœ¼ë©´ ìŒìˆ˜
+    printf("À¯´Ğ½º Å¸ÀÓ (Unix Time): %lld ÃÊ\n\n", timer); 
+    printf("ÇöÀç ³â: %d\n", t->tm_year + 1900);
+    printf("ÇöÀç ¿ù: %d\n", t->tm_mon + 1);
+    printf("ÇöÀç ÀÏ: %d\n", t->tm_mday);
+    printf("ÇöÀç ½Ã: %d\n", t->tm_hour);
+    printf("ÇöÀç ºĞ: %d\n", t->tm_min);
+    printf("ÇöÀç ÃÊ: %d\n", t->tm_sec);
+    printf("ÇöÀç ¿äÀÏ: %d\n", t->tm_wday); // ÀÏ=0, ¿ù=1, È­=2, ¼ö=3, ¸ñ=4, ±İ=5, Åä=6
+    printf("¿ÃÇØ ¸î ¹øÂ° ³¯: %d\n", t->tm_yday); // 1¿ù 1ÀÏÀº 0, 1¿ù 2ÀÏÀº 1
+    printf("¼­¸ÓÅ¸ÀÓ Àû¿ë ¿©ºÎ: %d\n", t->tm_isdst); // ½Ç½Ã ÁßÀÌ¸é ¾ç¼ö, ¹Ì½Ç½Ã¸é 0, ½Ç½Ã Á¤º¸°¡ ¾øÀ¸¸é À½¼ö
     
     return 0;
 }
