@@ -18,6 +18,11 @@ int main() {
     printf("현재 요일: %d\n", t->tm_wday); // 일=0, 월=1, 화=2, 수=3, 목=4, 금=5, 토=6
     printf("올해 몇 번째 날: %d\n", t->tm_yday); // 1월 1일은 0, 1월 2일은 1
     printf("서머타임 적용 여부: %d\n", t->tm_isdst); // 실시 중이면 양수, 미실시면 0, 실시 정보가 없으면 음수
+
+    char timebuffer[10+1];
+
+    sprintf(timebuffer, "%lld", timer);
+    printf("timebuffer: %s\n", timebuffer);
     
     return 0;
 }
