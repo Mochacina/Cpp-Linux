@@ -99,7 +99,7 @@ int main(){
     while (1) {
         // 메세지 버퍼 초기화하고 입력받기
         memset(msg, 0, PACKET_SIZE);
-        cin >> msg;
+        cin.getline(msg, PACKET_SIZE);
         if ((string)msg == "list") { // 입력한 값이 "list"면 연결된 Client 목록 출력
             cout << "연결된 Client IP Address 목록" << endl;
 			for (size_t i = 0; i < clientPool.size(); ++i) {
