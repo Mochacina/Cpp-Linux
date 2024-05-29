@@ -20,7 +20,7 @@ std::mutex clients_mutex;
 // 메시지를 모든 클라이언트에게 브로드캐스트하는 함수
 void broadcast_message(const std::string &message, int sender_fd) {
     // 뮤텍스를 사용하여 클라이언트 맵 접근 동기화
-    std::lock_guard<std::mutex> lock(clients_mutex);
+    //std::lock_guard<std::mutex> lock(clients_mutex);
     for (const auto &client : clients) {
         // 메시지를 보낸 클라이언트는 제외
         if (client.first != sender_fd) {
@@ -41,12 +41,12 @@ void handle_client(int client_socket) {
         }
         // 수신된 메시지 포맷팅
         std::string message = "Client " + std::to_string(client_socket) + ": " + buffer;
-        std::cout << message;
+        std::cout << message << std::endl;
         broadcast_message(message, client_socket); // 메시지 브로드캐스트
     }
 
     // 클라이언트가 연결 종료 시 맵에서 제거하고 소켓 닫기
-    std::lock_guard<std::mutex> lock(clients_mutex);
+    //std::lock_guard<std::mutex> lock(clients_mutex);
     clients.erase(client_socket);
     close(client_socket);
 }
@@ -102,7 +102,7 @@ int main(int argc, char* argv[]) {
         }
 
         // 클라이언트 소켓을 맵에 추가하고 스레드 생성
-        std::lock_guard<std::mutex> lock(clients_mutex);
+        //std::lock_guard<std::mutex> lock(clients_mutex);
         clients[client_socket] = std::thread(handle_client, client_socket);
         // 스레드를 분리하여 독립적으로 실행되도록 설정
         clients[client_socket].detach();
