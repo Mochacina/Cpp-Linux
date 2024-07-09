@@ -11,5 +11,9 @@ int main (){
         std::cout << _str << std::endl;
     }
 
+    for (auto it = vecTest.begin(); it != vecTest.end(); it++){
+        std::cout << *it << std::endl;
+    }
+
     return 0;
 }
