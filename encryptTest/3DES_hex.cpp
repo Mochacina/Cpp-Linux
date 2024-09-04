@@ -121,9 +121,7 @@ byte pc2_table [PC2_SIZE]  = {
    44, 49, 39, 56, 34, 53,
    46, 42, 50, 36, 29, 32 };
 
-/* ÀÌºÎºĞÀÌ Å° ºÎºĞÀ¸·Î ÇÕÀÇÇÑ Å°¸¦ ¼ÂÆÃÇÏ¼Å¾ß ÇÕ´Ï´Ù.   */
-
-/* ÀÓÀÇ·Î ¼ÂÆÃÇÔ */  
+// key setting
 /*
 byte org_key1[8] ={0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};        
 byte org_key2[8] ={0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
@@ -581,17 +579,17 @@ void ENDECRYPT(char *p1 , char *p2, char *p3, char *p4)
 
   if (!strcmp(p3, "F" ) || !strcmp(p3, "f" ) )
   {
-  	/* org_key1 ·Î ¾ÏÈ£È­ */
+  	/* org_key1 ë¡œ ì•”í˜¸í™” */
 		memcpy(str, p1 , len);
 	 	des_key1(str , ENCIPHER, len );
 		
-		/* org_key2 ·Î º¹È£È­ */
+		/* org_key2 ë¡œ ë³µí˜¸í™” */
 		memcpy(buf, str , len );
 		*(buf+len) = '\0';
 		des_key2( buf , DECIPHER, len );
 		memcpy(str, buf , len );
 	
-		/* org_key1 ·Î ¾ÏÈ£È­ */
+		/* org_key1 ë¡œ ì•”í˜¸í™” */
 	 	des_key1(str , ENCIPHER, len );
 
 		/* Test Print */
@@ -606,7 +604,7 @@ void ENDECRYPT(char *p1 , char *p2, char *p3, char *p4)
 		
   } else if (!strcmp(p3, "B" ) || !strcmp(p3, "b" ) ) {
 
-		/* org_key1 À¸·Î º¹È£È­ */
+		/* org_key1 ìœ¼ë¡œ ë³µí˜¸í™” */
 		memcpy(hinput, p1 , len);
 		HexStringToBytes (hinput, len, buf );
 		
@@ -614,10 +612,10 @@ void ENDECRYPT(char *p1 , char *p2, char *p3, char *p4)
 		*(str+len/2) = '\0';
 		des_key1(str , DECIPHER, len/2);
 		
-		/* org_key2 À¸·Î ¾ÏÈ£È­ */
+		/* org_key2 ìœ¼ë¡œ ì•”í˜¸í™” */
 		des_key2(str , ENCIPHER, len/2 );
 		
-		/* org_key1 À¸·Î º¹È£È­ */
+		/* org_key1 ìœ¼ë¡œ ë³µí˜¸í™” */
 		memcpy(buf, str , len/2);
 		*(buf+len/2) = '\0';
 		des_key1(buf , DECIPHER, len / 2 );
@@ -640,10 +638,10 @@ void ENDECRYPT(char *p1 , char *p2, char *p3, char *p4)
 }
 
  /* < Test Part >   *
-  * ¾Æ·¡ main ÇÔ¼ö´Â ÀÚÃ¼ ¸ğµâ Å×½ºÆ®¸¦ À§ÇÑ ºÎºĞÀÔ´Ï´Ù.
-	Production Àû¿ë½Ã´Â ¾Æ·¡ main ÇÔ¼ö¸¦ »èÁ¦ÇÏ°í ENDECRYPT ÇÔ¼ö¸¦
-	Á÷Á¢ È£ÃâÇÏ¸é µË´Ï´Ù.
-	À§ sourceÀÇ  Test Print  ¿µ¿ªµµ »èÁ¦ÇÏ½Ã¸é µË´Ï´Ù.
+  * ì•„ë˜ main í•¨ìˆ˜ëŠ” ìì²´ ëª¨ë“ˆ í…ŒìŠ¤íŠ¸ë¥¼ ìœ„í•œ ë¶€ë¶„ì…ë‹ˆë‹¤.
+	Production ì ìš©ì‹œëŠ” ì•„ë˜ main í•¨ìˆ˜ë¥¼ ì‚­ì œí•˜ê³  ENDECRYPT í•¨ìˆ˜ë¥¼
+	ì§ì ‘ í˜¸ì¶œí•˜ë©´ ë©ë‹ˆë‹¤.
+	ìœ„ sourceì˜  Test Print  ì˜ì—­ë„ ì‚­ì œí•˜ì‹œë©´ ë©ë‹ˆë‹¤.
 
  */
 int main(int argc, char *argv[])
@@ -654,16 +652,16 @@ int main(int argc, char *argv[])
 	char szPlain[30+1]="";
 	
 	memset(szPlain, 0x20, sizeof(szPlain)-1);
-	memcpy(szPlain,"99°¡9999", 8);
+	memcpy(szPlain,"99ê°€9999", 8);
 	szPlain[29]='E';
 	printf("30Byte. Plaine Data: %s\n\n\n",szPlain);
     ENDECRYPT(szPlain,
             "30",
-            "F",		// ¾ÏÈ£È­ 
+            "F",		// ì•”í˜¸í™” 
             szresult );
 
-    printf("60byte. ¾ÏÈ£¹®±æÀÌ %d\n",strlen(szresult));
-    printf("60byte. ¾ÏÈ£¹®: %s\n\n\n",szresult);
+    printf("60byte. ì•”í˜¸ë¬¸ê¸¸ì´ %d\n",strlen(szresult));
+    printf("60byte. ì•”í˜¸ë¬¸: %s\n\n\n",szresult);
   
     memset (szresult, 0x00, sizeof (szresult));
     strcpy (szresult, "68F3A833F93FC64D5C06D8254798889C755CDE2B073F021265390B6FC0D1");
@@ -671,28 +669,28 @@ int main(int argc, char *argv[])
     
     ENDECRYPT(szresult,
             "60",
-            "B",	// º¹È£È­
+            "B",	// ë³µí˜¸í™”
             szresult2 );
 
-    printf("30byte. º¹È£¹®±æÀÌ %d\n",strlen(szresult2));
-    printf("30byte. º¹È£¹®: %s\n\n",szresult2);
+    printf("30byte. ë³µí˜¸ë¬¸ê¸¸ì´ %d\n",strlen(szresult2));
+    printf("30byte. ë³µí˜¸ë¬¸: %s\n\n",szresult2);
 
 /*
-    ENDECRYPT("±èÅÂ¿µ                                                      ",
+    ENDECRYPT("ê¹€íƒœì˜                                                      ",
             "60",
             "F",
             szresult );
 
-    printf("4byte. ¾ÏÈ£¹®±æÀÌ %d\n",strlen(szresult));
-    printf("4byte. ¾ÏÈ£¹®: %s\n\n\n",szresult);
+    printf("4byte. ì•”í˜¸ë¬¸ê¸¸ì´ %d\n",strlen(szresult));
+    printf("4byte. ì•”í˜¸ë¬¸: %s\n\n\n",szresult);
 
     ENDECRYPT(szresult,
             "26",
             "B",
             szresult2 );
 
-    printf("32byte. º¹È£¹®±æÀÌ %d\n",strlen(szresult2));
-    printf("32byte. º¹È£¹®: %s\n\n",szresult2);
+    printf("32byte. ë³µí˜¸ë¬¸ê¸¸ì´ %d\n",strlen(szresult2));
+    printf("32byte. ë³µí˜¸ë¬¸: %s\n\n",szresult2);
  */ 
 
  	return(0);
