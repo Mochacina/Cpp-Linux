@@ -7,6 +7,9 @@ int main(){
     char szresult[2048];
     memset(szresult, 0x00, sizeof(szresult));
 
+    char szresult2[2048];
+    memset(szresult2, 0x00, sizeof(szresult2));
+
     char szPlain[30+1];
     memset(szPlain, 0x00, sizeof(szPlain));
 
@@ -16,10 +19,16 @@ int main(){
 
     ENDECRYPT(szPlain,
             "30",
-            "F",		// ¾ÏÈ£È­ 
+            "F",
             szresult);
     
-    cout << "Result: " << szresult << endl;
+    ENDECRYPT(szresult,
+            "60",
+            "B",
+            szresult2);
+    
+    cout << "Encrypt Result: " << szresult << endl;
+    cout << "Decrypt Result: " << szresult2 << endl;
 
     return 0;
 }
