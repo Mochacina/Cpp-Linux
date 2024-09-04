@@ -621,20 +621,11 @@ void ENDECRYPT(char *p1 , char *p2, char *p3, char *p4)
 		des_key1(buf , DECIPHER, len / 2 );
 		
 		memcpy(p4, buf , len / 2);
-
-		/* Test Print */
-		printf("Print Decrypted Result Hex \n");
-		PrintData(str, len/2);
-
-		printf("\n");
-		printf("Print Decrypted Result String \n");
-		printf("%s\n",buf);
 	
 	} else {		
 		strcpy(p4,"Error");
 	}
 
-	printf("*** END ***\n");
 }
 
  /* < Test Part >   *
@@ -644,6 +635,8 @@ void ENDECRYPT(char *p1 , char *p2, char *p3, char *p4)
 	위 source의  Test Print  영역도 삭제하시면 됩니다.
 
  */
+
+/*
 int main(int argc, char *argv[])
 {
 	
@@ -675,25 +668,8 @@ int main(int argc, char *argv[])
     printf("30byte. 복호문길이 %d\n",strlen(szresult2));
     printf("30byte. 복호문: %s\n\n",szresult2);
 
-/*
-    ENDECRYPT("김태영                                                      ",
-            "60",
-            "F",
-            szresult );
-
-    printf("4byte. 암호문길이 %d\n",strlen(szresult));
-    printf("4byte. 암호문: %s\n\n\n",szresult);
-
-    ENDECRYPT(szresult,
-            "26",
-            "B",
-            szresult2 );
-
-    printf("32byte. 복호문길이 %d\n",strlen(szresult2));
-    printf("32byte. 복호문: %s\n\n",szresult2);
- */ 
-
  	return(0);
 
 }
+*/
 
