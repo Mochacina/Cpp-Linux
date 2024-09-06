@@ -65,11 +65,10 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    char msg[PACKET_SIZE] = {0};
+    std::string msgBuffer;
     while (1) {
-        memset(msg, 0, PACKET_SIZE);
-        cin >> msg;
-        ssize_t sendSize = send(server_socket, msg, strlen(msg), 0);
+        getline(std::cin, msgBuffer); 
+        ssize_t sendSize = send(server_socket, msgBuffer.c_str(), msgBuffer.size(), 0);
         if (sendSize <= 0) {
             cerr << "전송 오류" << endl;
             break;
