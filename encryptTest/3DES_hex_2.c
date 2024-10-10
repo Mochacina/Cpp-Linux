@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include "log.h"
 
 #define BLOCK_SIZE      64
 #define HALF_BLOCK      32
@@ -500,7 +501,7 @@ void des_key2(char *src, int mode, int len)
   }
 }
 
-void BytesToHexString( char *bytes, int inlen, char *hexstr )
+void BytesToHexString( char *bytes, int inlen,  char *hexstr )
 {       
 		int i;
 		unsigned char c1, c2;
@@ -595,9 +596,11 @@ void ENDECRYPT(char *p1 , char *p2, char *p3, char *p4)
 	 	des_key1(str , ENCIPHER, len );
 
 		/* Test Print */
+		/*
 		printf("Print Encrypted Result Hex \n");
 		PrintData(str, len);  
 		printf("\n"); 
+		*/
 
 		BytesToHexString ( str, len, buf );
 		*(buf+len*2) = '\0';  
@@ -624,78 +627,20 @@ void ENDECRYPT(char *p1 , char *p2, char *p3, char *p4)
 		
 		memcpy(p4, buf , len / 2);
 
-		/* Test Print */
+		/* Test Print 
 		printf("Print Decrypted Result Hex \n");
 		PrintData(str, len/2);
 
 		printf("\n");
 		printf("Print Decrypted Result String \n");
 		printf("%s\n",buf);
+		*/
 	
 	} else {		
 		strcpy(p4,"Error");
 	}
 
-	printf("*** END ***\n");
+	// printf("*** END ***\n");
 }
 
- /* < Test Part >   *
-  * 아래 main 함수는 자체 모듈 테스트를 위한 부분입니다.
-	Production 적용시는 아래 main 함수를 삭제하고 ENDECRYPT 함수를
-	직접 호출하면 됩니다.
-	위 source의  Test Print  영역도 삭제하시면 됩니다.
-
- */
-int main(int argc, char *argv[])
-{
-	
-	char szresult[4096]="";
-	char szresult2[2048]="";
-	char szPlain[30+1]="";
-	
-	memset(szPlain, 0x20, sizeof(szPlain)-1);
-	strncpy(szPlain,"123456", sizeof("123456")-1);
-	//szPlain[29]='E';
-	printf("30Byte. Plaine Data: '%s'\n\n\n",szPlain);
-    ENDECRYPT(szPlain,
-            "30",
-            "F",		// 암호화 
-            szresult );
-
-    printf("60byte. 암호문길이 %d\n",strlen(szresult));
-    printf("60byte. 암호문: %s\n\n\n",szresult);
-  
-    memset (szresult, 0x00, sizeof (szresult));
-    strcpy (szresult, "68F3A833F93FC64D5C06D8254798889C755CDE2B073F021265390B6FC0D1");
-    strcpy (szresult, "154CBA29931240AA755CDE2B073F0212755CDE2B073F021265390B6FC0D1");
-    
-    ENDECRYPT(szresult,
-            "60",
-            "B",	// 복호화
-            szresult2 );
-
-    printf("30byte. 복호문길이 %d\n",strlen(szresult2));
-    printf("30byte. 복호문: %s\n\n",szresult2);
-
-/*
-    ENDECRYPT("김태영                                                      ",
-            "60",
-            "F",
-            szresult );
-
-    printf("4byte. 암호문길이 %d\n",strlen(szresult));
-    printf("4byte. 암호문: %s\n\n\n",szresult);
-
-    ENDECRYPT(szresult,
-            "26",
-            "B",
-            szresult2 );
-
-    printf("32byte. 복호문길이 %d\n",strlen(szresult2));
-    printf("32byte. 복호문: %s\n\n",szresult2);
- */ 
-
- 	return(0);
-
-}
 
