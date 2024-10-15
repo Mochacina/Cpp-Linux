@@ -74,7 +74,8 @@
         "csetjmp": "cpp",
         "cuchar": "cpp",
         "scoped_allocator": "cpp",
-        "future": "cpp"
+        "future": "cpp",
+        "ENDE.C": "cpp"
     },
     "cmake.sourceDirectory": "C:/Dev/workspace/Cpp-Linux/libssh2Test/libssh2-1.11.0"
 }

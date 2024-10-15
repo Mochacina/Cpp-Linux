@@ -1,7 +1,10 @@
+#include <bits/stdc++.h>
+#include "KISA_SEED_CBC.h"
+
 // KISA_SEED_CBC 암복호화 함수
 // Insert Jhlee 2022-12-13
 // Retuen Value : 암호화된 길이
-int SpwClient::EncryptMsg(unsigned char* pszSrcMsg, unsigned char* pszEncMsg, int nDataLen)
+int EncryptMsg(unsigned char* pszSrcMsg, unsigned char* pszEncMsg, int nDataLen)
 {
 	
 	BYTE pbszUserKey[16] = {0x00f, 0x043, 0x057, 0x0da, 0x059, 0x0a4, 0x0bc, 0x05e, 0x064, 0x0db, 0x0aa, 0x0b9, 0x08d, 0x0cb, 0x056, 0x0ba}; 
@@ -23,8 +26,6 @@ int SpwClient::EncryptMsg(unsigned char* pszSrcMsg, unsigned char* pszEncMsg, in
 	strcpy((char*)plainText, (char*)pszSrcMsg);
 	nPlainTextLen = nDataLen;
 
-	log(7, "  < Fn: EncryptMsg>  plainText(%d): %s", nPlainTextLen, plainText);
-
 	// Encryption......
 	nCipherTextLen = SEED_CBC_Encrypt( pbszUserKey, pbszIV, plainText, nPlainTextLen, pbszCipherText );
 	
@@ -33,7 +34,6 @@ int SpwClient::EncryptMsg(unsigned char* pszSrcMsg, unsigned char* pszEncMsg, in
 		sprintf((char*)szbyteLog, "%02X ",(char*)pbszCipherText[i]);
 		memcpy(&szLogBuff[strlen((char*)szLogBuff)], szbyteLog, strlen(szbyteLog));
 		}
-	log(7, "  < Fn: EncryptMsg> Encryption end, nCiphertext(%d) : %s", nCipherTextLen, szLogBuff);
 			
 	memcpy(pszEncMsg, pbszCipherText, nCipherTextLen);
 	
@@ -41,7 +41,7 @@ int SpwClient::EncryptMsg(unsigned char* pszSrcMsg, unsigned char* pszEncMsg, in
 	
 }
 
-int SpwClient::DecryptMsg(unsigned char* pszCipherText, unsigned char* pszPlainText, int nCipherTextLen)
+int DecryptMsg(unsigned char* pszCipherText, unsigned char* pszPlainText, int nCipherTextLen)
 {
 	// KISA_SEED_CBC
 	BYTE pbszUserKey[16] = {0x00f, 0x043, 0x057, 0x0da, 0x059, 0x0a4, 0x0bc, 0x05e, 0x064, 0x0db, 0x0aa, 0x0b9, 0x08d, 0x0cb, 0x056, 0x0ba}; 
@@ -52,11 +52,7 @@ int SpwClient::DecryptMsg(unsigned char* pszCipherText, unsigned char* pszPlainT
 	
 	int nPlainTextLen = 0;
 		
-	log(7, "  < Fn: DecryptMsg> nCipherTextLen(%d)", nCipherTextLen);
-	
 	nPlainTextLen = SEED_CBC_Decrypt( pbszUserKey, pbszIV, pszCipherText, nCipherTextLen, pszPlainText );
 	
-	log(7, "  < Fn: DecryptMsg> pszPlainText(%d) : %s", nPlainTextLen, pszPlainText);
-
 	return nPlainTextLen;
 }

@@ -655,6 +655,7 @@ int SEED_CBC_Decrypt( IN BYTE *pbszUserKey, IN BYTE *pbszIV, IN BYTE *pbszCipher
 
 // method 1 start
 
+/*
 int main()
 {
 	
@@ -690,7 +691,7 @@ int main()
 	for (i=0;i<16;i++)	{printf("%02X ",pbszIV[i]);}
 	
 	
-	printf("\n\nSOURCE Length : %d", strlen(plainText));
+	printf("\n\nSOURCE Length : %d", strlen((char*)plainText));
 
 	nPlainTextLen = strlen((const char*)plainText);
 	nPaddingCnt = 16 - (nPlainTextLen	 % 16);
@@ -728,6 +729,7 @@ int main()
 	return 0;
 
 }
+*/
 
 // method 1 end
 
