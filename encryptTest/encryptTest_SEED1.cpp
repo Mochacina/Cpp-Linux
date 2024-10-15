@@ -5,6 +5,8 @@
 
 using namespace std;
 
+int	Hex_Dump(unsigned char* buff, int nLen);
+
 int main(int argc, char* argv[])
 {
 	
@@ -76,6 +78,11 @@ int main(int argc, char* argv[])
 	printf ("\nszCipher(%d) : ", nCipherTextLen);
 	for (i=0;i<nCipherTextLen;i++)	{printf("%02X ", pbszCipherText[i]);}
 
+	printf ("\nstring(%d) : ", nCipherTextLen);
+	for (i=0;i<nCipherTextLen;i++)	{printf("%02c ", pbszCipherText[i]);}
+
+	Hex_Dump(pbszCipherText, nCipherTextLen);
+
 	printf ("\n\nDecryption....\n");
 
 	// Decryption Algorithm //
@@ -87,9 +94,39 @@ int main(int argc, char* argv[])
 
 	printf ("\n");
 
-
 	// printf("\n\n test :% -10s,   \n\n", "1234");
 	
 	return 0;
 
+}
+
+int	Hex_Dump(unsigned char* buff, int nLen)
+{
+	int 	i;
+	char	szbyteLog[5];
+	unsigned char  szlogBuff[2048];
+	unsigned char  szsrcBuff[1024];
+	
+		
+	memset(szlogBuff, 0x00, sizeof(szlogBuff));
+	memset(szsrcBuff, 0x00, sizeof(szsrcBuff));
+	
+	memcpy(szsrcBuff, buff, nLen);
+	
+	// log(7,"nLen: %d, szsrcBuff: %s", nLen, szsrcBuff);
+		
+	for (i=0; i < nLen; i++)	
+	{
+		// log(7,"      nLen: %d, buff[%d] : %02X", nLen, i, szsrcBuff[i]);
+		memset(szbyteLog, 0x00, sizeof(szbyteLog));
+		sprintf(szbyteLog, "%02X", (char*)szsrcBuff[i]);
+		// log(7,"      szbyteLog: %s", szbyteLog);
+		memcpy(&szlogBuff[strlen((char*)szlogBuff)], szbyteLog, strlen(szbyteLog));
+		// log(7,"      szlogBuff : %s", szlogBuff);
+	}
+	
+	printf("\n\nHEX_DUMP(%d) : %s", nLen, szlogBuff);
+	
+	
+	return i;		// pBuff length
 }
