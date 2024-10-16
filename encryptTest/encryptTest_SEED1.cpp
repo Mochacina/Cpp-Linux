@@ -2,6 +2,7 @@
 #include "./KISA_SEED_CBC.h"
 
 // g++ encryptTest_SEED1.cpp KISA_SEED_CBC_test.c -o encryptTest_SEED1
+// BYTE = unsigned char
 
 using namespace std;
 
@@ -77,6 +78,9 @@ int main(int argc, char* argv[])
 
 	printf ("\nszCipher(%d) : ", nCipherTextLen);
 	for (i=0;i<nCipherTextLen;i++)	{printf("%02X ", pbszCipherText[i]);}
+
+	printf ("\nCiphertext Decimal  : ");
+	for (i=0;i<nCipherTextLen;i++)	{printf("%d ", pbszCipherText[i]);}
 
 	printf ("\nstring(%d) : ", nCipherTextLen);
 	for (i=0;i<nCipherTextLen;i++)	{printf("%02c ", pbszCipherText[i]);}
