@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 #include "./KISA_SEED_CBC.h"
 
-// g++ encryptTest_SEED1.cpp KISA_SEED_CBC_test.c -o encryptTest_SEED1
+// g++ encryptTest_SEED2.cpp KISA_SEED_CBC_test.c -o encryptTest_SEED2
 // BYTE = unsigned char
 
 using namespace std;
@@ -76,14 +76,24 @@ int main(int argc, char* argv[])
 	printf ("\nCiphertext(%d) : ", nCipherTextLen);
 	for (i=0;i<nCipherTextLen;i++)	{printf("%02X ",pbszCipherText[i]);}
 
-	printf ("\nszCipher(%d) : ", nCipherTextLen);
-	for (i=0;i<nCipherTextLen;i++)	{printf("%02X ", pbszCipherText[i]);}
+	std::string CipherText = "";
+	char buffer[] = "  ";
+
+	printf ("\nszCipher Test(%d) : \n", nCipherTextLen);
+	for (i=0;i<nCipherTextLen;i++)	{
+		//printf("%02X ", pbszCipherText[i]);
+		sprintf(buffer, "%02X", pbszCipherText[i]);
+		cout << "buffer: " << buffer << endl;
+		CipherText += buffer;
+	}
+
+	cout << CipherText << endl;
 
 	printf ("\nCiphertext Decimal  : ");
 	for (i=0;i<nCipherTextLen;i++)	{printf("%d ", pbszCipherText[i]);}
 
 	printf ("\nstring(%d) : ", nCipherTextLen);
-	for (i=0;i<nCipherTextLen;i++)	{printf("'%c'", pbszCipherText[i]);}
+	for (i=0;i<nCipherTextLen;i++)	{printf("%c", pbszCipherText[i]);}
 
 	Hex_Dump(pbszCipherText, nCipherTextLen);
 
