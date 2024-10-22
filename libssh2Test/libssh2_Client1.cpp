@@ -8,6 +8,8 @@
 #include <sys/socket.h>
 #include <fcntl.h>
 
+// g++ libssh2_Client1.cpp -o libssh2_Client1 -lssh2 -lcrypto
+
 void list_files(LIBSSH2_SFTP *sftp_session, const char *path);
 void download_file(LIBSSH2_SFTP *sftp_session, const char *remote_file);
 void upload_file(LIBSSH2_SFTP *sftp_session, const char *local_file);
