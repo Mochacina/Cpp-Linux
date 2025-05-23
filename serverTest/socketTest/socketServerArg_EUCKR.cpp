@@ -14,103 +14,119 @@ using namespace std;
 #define PACKET_SIZE 1024
 //#define serverPort 7000
 
-struct ClientInfo { // í´ë¼ì´ì–¸íŠ¸ ì •ë³´ í•„ë“œ
+struct ClientInfo { // Å¬¶óÀÌ¾ğÆ® Á¤º¸ ÇÊµå
 	int socket;
 	sockaddr_in clientAddress;
 };
 
-vector<pthread_t> clientThreads;    // ìŠ¤ë ˆë“œë“¤ì„ ê´€ë¦¬í•  vector ì„ ì–¸
-vector<ClientInfo*> clientPool;     // í´ë¼ì´ì–¸íŠ¸ ì •ë³´ êµ¬ì¡°ì²´ë¥¼ ê´€ë¦¬í•  vector ì„ ì–¸
+vector<pthread_t> clientThreads;    // ½º·¹µåµéÀ» °ü¸®ÇÒ vector ¼±¾ğ
+vector<ClientInfo*> clientPool;     // Å¬¶óÀÌ¾ğÆ® Á¤º¸ ±¸Á¶Ã¼¸¦ °ü¸®ÇÒ vector ¼±¾ğ
 
-int server_socket;                  // ì„œë²„ ì†Œì¼“
-void* handle_client(void* data);    // í´ë¼ì´ì–¸íŠ¸ ê´€ë¦¬ thread í•¨ìˆ˜
-void* client_accept(void* data);    // í´ë¼ì´ì–¸íŠ¸ ì—°ê²° thread í•¨ìˆ˜
+int server_socket;                  // ¼­¹ö ¼ÒÄÏ
+void* handle_client(void* data);    // Å¬¶óÀÌ¾ğÆ® °ü¸® thread ÇÔ¼ö
+void* client_accept(void* data);    // Å¬¶óÀÌ¾ğÆ® ¿¬°á thread ÇÔ¼ö
 
 void signalHandler(int signum) {
-    std::cout << "í”„ë¡œê·¸ë¨ì´ ì¸í„°ëŸ½íŠ¸(SIGINT)ë¡œ ì¸í•´ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤." << std::endl;
-    // ì¶”ê°€ë¡œ ìˆ˜í–‰í•  ì‘ì—…ì´ ìˆë‹¤ë©´ ì—¬ê¸°ì—ì„œ ì²˜ë¦¬ ê°€ëŠ¥
-    exit(signum); // ì¢…ë£Œ
+    std::cout << "ÇÁ·Î±×·¥ÀÌ ÀÎÅÍ·´Æ®(SIGINT)·Î ÀÎÇØ Á¾·áµÇ¾ú½À´Ï´Ù." << std::endl;
+    // Ãß°¡·Î ¼öÇàÇÒ ÀÛ¾÷ÀÌ ÀÖ´Ù¸é ¿©±â¿¡¼­ Ã³¸® °¡´É
+    exit(signum); // Á¾·á
 }
 
-int main(){
-    signal(SIGINT, signalHandler); // SIGINT ê´€ë ¨ signal í•¸ë“¤ëŸ¬ ë“±ë¡
+int main(int argc, char* argv[]){
+
+    if (argc != 2) {
+        cerr << "»ç¿ë¹ı: " << argv[0] << " <¼­¹ö Æ÷Æ® ¹øÈ£>" << endl;
+        return 1;
+    }
+
+    signal(SIGINT, signalHandler); // SIGINT °ü·Ã signal ÇÚµé·¯ µî·Ï
 
     int optvalue = 1; // sockopt optvalue
     struct sockaddr_in serverAddr;
 
-    // server socket ìƒì„±
+    // server socket »ı¼º
     server_socket = socket(AF_INET, SOCK_STREAM, 0); 
     if (server_socket == -1) {
-        cerr << "ì„œë²„ ì†Œì¼“ ìƒì„± ì‹¤íŒ¨" << endl;
+        cerr << "¼­¹ö ¼ÒÄÏ »ı¼º ½ÇÆĞ" << endl;
         //perror("socket");
         
         return 1;
     }
     setsockopt(server_socket, SOL_SOCKET, SO_REUSEADDR, &optvalue, sizeof(optvalue));
 
-    memset(&serverAddr, 0, sizeof(serverAddr)); // sockaddr_in ì´ˆê¸°í™”
+    memset(&serverAddr, 0, sizeof(serverAddr)); // sockaddr_in ÃÊ±âÈ­
 
-    int serverPort = 7777;
+    int serverPort = atoi(argv[1]);
+    /*
     while (true){
-        cout << "í¬íŠ¸ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ";
+        cout << "Æ÷Æ® ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ";
         cin >> serverPort;
         if (std::cin.fail()) {
-            cout << "ì…ë ¥ì´ ì˜¬ë°”ë¥¸ ì •ìˆ˜ê°€ ì•„ë‹™ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ ì£¼ì„¸ìš”." << endl;
+            cout << "ÀÔ·ÂÀÌ ¿Ã¹Ù¸¥ Á¤¼ö°¡ ¾Æ´Õ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØ ÁÖ¼¼¿ä." << endl;
 
-            // ì—ëŸ¬ í”Œë˜ê·¸ë¥¼ ì´ˆê¸°í™”í•˜ì—¬ ì…ë ¥ ìŠ¤íŠ¸ë¦¼ì„ ì •ìƒ ìƒíƒœë¡œ ì „í™˜
+            // ¿¡·¯ ÇÃ·¡±×¸¦ ÃÊ±âÈ­ÇÏ¿© ÀÔ·Â ½ºÆ®¸²À» Á¤»ó »óÅÂ·Î ÀüÈ¯
             cin.clear();
             
-            // ì˜ëª»ëœ ì…ë ¥ ë¬´ì‹œ
+            // Àß¸øµÈ ÀÔ·Â ¹«½Ã
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         } else {
             if(serverPort <= 65000 && 1024 <= serverPort) {
-                cout << "ì…ë ¥í•œ í¬íŠ¸ ë²ˆí˜¸: " << serverPort << endl;
+                cout << "ÀÔ·ÂÇÑ Æ÷Æ® ¹øÈ£: " << serverPort << endl;
                 break;
             } else {
-                cout << "ì •ìƒì ì¸ í¬íŠ¸ ë²”ìœ„ë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”. (1024 ~ 65000)" << endl;
+                cout << "Á¤»óÀûÀÎ Æ÷Æ® ¹üÀ§¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä. (1024 ~ 65000)" << endl;
             }
         }
     }
+    */
+
+    if(serverPort <= 65000 && 1024 <= serverPort) {
+        cout << "ÀÔ·ÂÇÑ Æ÷Æ® ¹øÈ£: " << serverPort << endl;
+    } else {
+        cout << "Á¤»óÀûÀÎ Æ÷Æ® ¹üÀ§¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä. (1024 ~ 65000)" << endl;
+        return -1;
+    }
+
     serverAddr.sin_family = AF_INET;
     serverAddr.sin_addr.s_addr = INADDR_ANY;
     serverAddr.sin_port = htons(serverPort);
 
-    // ì„œë²„ ì†Œì¼“ì„ ì£¼ì†Œì™€ ë°”ì¸ë”©
+    // ¼­¹ö ¼ÒÄÏÀ» ÁÖ¼Ò¿Í ¹ÙÀÎµù
     int bindResult = ::bind(server_socket, (struct sockaddr*)&serverAddr, sizeof(serverAddr));
     if (bindResult < 0) {
-        cerr << "ë°”ì¸ë”© ì‹¤íŒ¨" << endl;
+        cerr << "¹ÙÀÎµù ½ÇÆĞ" << endl;
         //perror("bind");
 
         close(server_socket);
         return 1;
     }
 
-    listen(server_socket, 5); // 5ëŠ” ë°±ë¡œê·¸ í¬ê¸° = ë™ì‹œì— ì²˜ë¦¬ ê°€ëŠ¥í•œ ì—°ê²° ìš”ì²­ì˜ ìµœëŒ€ ìˆ˜
-    cout << "ì„œë²„ê°€ "<< serverPort << " í¬íŠ¸ì—ì„œ ëŒ€ê¸° ì¤‘..." << endl;
+    listen(server_socket, 5); // 5´Â ¹é·Î±× Å©±â = µ¿½Ã¿¡ Ã³¸® °¡´ÉÇÑ ¿¬°á ¿äÃ»ÀÇ ÃÖ´ë ¼ö
+    cout << "¼­¹ö°¡ "<< serverPort << " Æ÷Æ®¿¡¼­ ´ë±â Áß..." << endl;
 
-    pthread_t thread_listen; // í´ë¼ì´ì–¸íŠ¸ ì—°ê²° ìš”ì²­ì„ ìˆ˜ë½í•  ìŠ¤ë ˆë“œ ìƒì„±
+    pthread_t thread_listen; // Å¬¶óÀÌ¾ğÆ® ¿¬°á ¿äÃ»À» ¼ö¶ôÇÒ ½º·¹µå »ı¼º
     if (pthread_create(&thread_listen, NULL, client_accept, NULL) != 0) {
-        cerr << "ìŠ¤ë ˆë“œ ìƒì„± ì‹¤íŒ¨" << endl;
+        cerr << "½º·¹µå »ı¼º ½ÇÆĞ" << endl;
         return 1;
     }
 
     char msg[PACKET_SIZE] = {0};
 
     while (1) {
-        // ë©”ì„¸ì§€ ë²„í¼ ì´ˆê¸°í™”í•˜ê³  ì…ë ¥ë°›ê¸°
+        // ¸Ş¼¼Áö ¹öÆÛ ÃÊ±âÈ­ÇÏ°í ÀÔ·Â¹Ş±â
         memset(msg, 0, PACKET_SIZE);
-        cin >> msg;
-        if ((string)msg == "list") { // ì…ë ¥í•œ ê°’ì´ "list"ë©´ ì—°ê²°ëœ Client ëª©ë¡ ì¶œë ¥
-            cout << "ì—°ê²°ëœ Client IP Address ëª©ë¡" << endl;
+        cin.getline(msg, PACKET_SIZE);
+        if ((string)msg == "list") { // ÀÔ·ÂÇÑ °ªÀÌ "list"¸é ¿¬°áµÈ Client ¸ñ·Ï Ãâ·Â
+            cout << "¿¬°áµÈ Client IP Address ¸ñ·Ï" << endl;
 			for (size_t i = 0; i < clientPool.size(); ++i) {
 				cout << inet_ntoa(clientPool[i]->clientAddress.sin_addr) << ":" << ntohs(clientPool[i]->clientAddress.sin_port) << endl;
 			}
         } else if ((string)msg == "exit") {
-            cout << "Serverë¥¼ ì¢…ë£Œí•©ë‹ˆë‹¤." << endl;
+            cout << "Server¸¦ Á¾·áÇÕ´Ï´Ù." << endl;
             pthread_detach(thread_listen);
             break;
         } 
-        else { // ì…ë ¥í•œ ê°’ì´ "list", "exit"ê°€ ì•„ë‹ˆë©´ ì—°ê²°ëœ Clientë“¤ì—ê²Œ ë©”ì„¸ì§€ ì „ì†¡
+        else { // ÀÔ·ÂÇÑ °ªÀÌ "list", "exit"°¡ ¾Æ´Ï¸é ¿¬°áµÈ Clientµé¿¡°Ô ¸Ş¼¼Áö Àü¼Û
             for (size_t i = 0; i < clientPool.size(); ++i) {
 				send(clientPool[i]->socket, msg, strlen(msg), 0);
 			}
@@ -118,23 +134,23 @@ int main(){
     }
 
     pthread_join(thread_listen, NULL);
-    /* ë©”ëª¨ë¦¬ í• ë‹¹ í•´ì œ */
+    /* ¸Ş¸ğ¸® ÇÒ´ç ÇØÁ¦ */
     for (size_t i = 0; i < clientPool.size(); ++i){
-        cout << "clientPool ë©”ëª¨ë¦¬ í• ë‹¹ í•´ì œ: " << clientPool[i]->socket << endl;
+        cout << "clientPool ¸Ş¸ğ¸® ÇÒ´ç ÇØÁ¦: " << clientPool[i]->socket << endl;
         delete clientPool[i];
     }
     for(size_t i = 0; i < clientThreads.size(); ++i){
-        cout << "clientThreads ë©”ëª¨ë¦¬ í• ë‹¹ í•´ì œ: " << clientThreads[i] << endl;
+        cout << "clientThreads ¸Ş¸ğ¸® ÇÒ´ç ÇØÁ¦: " << clientThreads[i] << endl;
         pthread_detach(clientThreads[i]);
     }
-    /* ë©”ëª¨ë¦¬ í• ë‹¹ í•´ì œ */
+    /* ¸Ş¸ğ¸® ÇÒ´ç ÇØÁ¦ */
 
-    // ì„œë²„ ì†Œì¼“ ë‹«ê³  í”„ë¡œê·¸ë¨ ì¢…ë£Œ
+    // ¼­¹ö ¼ÒÄÏ ´İ°í ÇÁ·Î±×·¥ Á¾·á
     close(server_socket);
     return 0;
 }
 
-void* client_accept(void* data){    // í´ë¼ì´ì–¸íŠ¸ ì—°ê²° thread í•¨ìˆ˜
+void* client_accept(void* data){    // Å¬¶óÀÌ¾ğÆ® ¿¬°á thread ÇÔ¼ö
     while(1) {
         int client_socket;
         struct sockaddr_in clientAddr;
@@ -142,26 +158,26 @@ void* client_accept(void* data){    // í´ë¼ì´ì–¸íŠ¸ ì—°ê²° thread í•¨ìˆ˜
 
         client_socket = accept(server_socket, (struct sockaddr*)&clientAddr, &clientAddrLen);
         if (client_socket == -1) {
-            // í´ë¼ì´ì–¸íŠ¸ ì—°ê²° ì‹¤íŒ¨ ì‹œ ì†Œì¼“ì„ ë‹«ê³  ë‹¤ìŒ while íšŒì°¨ë¡œ ë„˜ì–´ê°
-            std::cerr << "í´ë¼ì´ì–¸íŠ¸ ì—°ê²° ìˆ˜ë½ ì‹¤íŒ¨" << std::endl;
+            // Å¬¶óÀÌ¾ğÆ® ¿¬°á ½ÇÆĞ ½Ã ¼ÒÄÏÀ» ´İ°í ´ÙÀ½ while È¸Â÷·Î ³Ñ¾î°¨
+            std::cerr << "Å¬¶óÀÌ¾ğÆ® ¿¬°á ¼ö¶ô ½ÇÆĞ" << std::endl;
             //perror("client");
             close(client_socket);
             continue;
         }
 
-        cout << "í´ë¼ì´ì–¸íŠ¸ì™€ ì—°ê²°ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤" << endl;
+        cout << "Å¬¶óÀÌ¾ğÆ®¿Í ¿¬°áÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù" << endl;
         cout << "Client IP: " << inet_ntoa(clientAddr.sin_addr) << endl;
 		cout << "Port: " << ntohs(clientAddr.sin_port) << endl;
         
-        // í´ë¼ì´ì–¸íŠ¸ì˜ ë°ì´í„°ë¥¼ ë‹´ì€ êµ¬ì¡°ì²´ë¥¼ ìƒì„±í•˜ê³ 
-        // ì—°ê²°ëœ í´ë¼ì´ì–¸íŠ¸ì˜ êµ¬ì¡°ì²´ ì •ë³´ë¥¼ ê´€ë¦¬í•˜ê¸° ìœ„í•´ vectorë¥¼ ì‚¬ìš©
+        // Å¬¶óÀÌ¾ğÆ®ÀÇ µ¥ÀÌÅÍ¸¦ ´ãÀº ±¸Á¶Ã¼¸¦ »ı¼ºÇÏ°í
+        // ¿¬°áµÈ Å¬¶óÀÌ¾ğÆ®ÀÇ ±¸Á¶Ã¼ Á¤º¸¸¦ °ü¸®ÇÏ±â À§ÇØ vector¸¦ »ç¿ë
         ClientInfo* clientData = new ClientInfo;
 		clientData->socket = client_socket;
 		clientData->clientAddress = clientAddr;
 
         clientPool.push_back(clientData);
 
-        // í´ë¼ì´ì–¸íŠ¸ë¥¼ ì²˜ë¦¬í•  ìŠ¤ë ˆë“œ ìƒì„±
+        // Å¬¶óÀÌ¾ğÆ®¸¦ Ã³¸®ÇÒ ½º·¹µå »ı¼º
         pthread_t thread_client;
         pthread_create(&thread_client, NULL, handle_client, (void*)clientData);
         clientThreads.push_back(thread_client);
@@ -170,7 +186,7 @@ void* client_accept(void* data){    // í´ë¼ì´ì–¸íŠ¸ ì—°ê²° thread í•¨ìˆ˜
 }
 
 void* handle_client(void* data){
-    // void* íƒ€ì… parameterë¥¼ ì‚¬ìš©í•  ìˆ˜ ìˆë„ë¡ ClientInfo* íƒ€ì…ìœ¼ë¡œ í˜•ë³€í™˜
+    // void* Å¸ÀÔ parameter¸¦ »ç¿ëÇÒ ¼ö ÀÖµµ·Ï ClientInfo* Å¸ÀÔÀ¸·Î Çüº¯È¯
     ClientInfo* clientData = static_cast<ClientInfo*>(data);
     int clientSocket = clientData->socket;
 	sockaddr_in clientAddr = clientData->clientAddress;
@@ -179,19 +195,19 @@ void* handle_client(void* data){
 	int recvSize;
 
     do {
-        // buffer ë©”ëª¨ë¦¬ ì´ˆê¸°í™”í•˜ê³  recv>0ì¸ ê²½ìš° ë©”ì„¸ì§€ë¥¼ ë°›ì€ê²ƒìœ¼ë¡œ ê°„ì£¼í•˜ì—¬ bufferì˜ ê°’ì„ ì¶œë ¥í•˜ê³  sendí•¨
+        // buffer ¸Ş¸ğ¸® ÃÊ±âÈ­ÇÏ°í recv>0ÀÎ °æ¿ì ¸Ş¼¼Áö¸¦ ¹ŞÀº°ÍÀ¸·Î °£ÁÖÇÏ¿© bufferÀÇ °ªÀ» Ãâ·ÂÇÏ°í sendÇÔ
         memset(buffer, 0, PACKET_SIZE);
 		recvSize = recv(clientSocket, buffer, sizeof(buffer), 0);
 		if (recvSize > 0) {
-			cout << inet_ntoa(clientAddr.sin_addr) << ":" << ntohs(clientAddr.sin_port) << "ë¡œë¶€í„° ë°›ì€ ë©”ì„¸ì§€: [" << buffer << "]ë¥¼ echoí•©ë‹ˆë‹¤." << endl;
+			cout << inet_ntoa(clientAddr.sin_addr) << ":" << ntohs(clientAddr.sin_port) << "·ÎºÎÅÍ ¹ŞÀº ¸Ş¼¼Áö: [" << buffer << "]¸¦ echoÇÕ´Ï´Ù." << endl;
 			send(clientSocket, buffer, recvSize, 0);
 		}
 	} while (recvSize > 0);
 
     for (size_t i = 0; i < clientPool.size(); ++i) {
 		if (clientPool[i]->socket == clientSocket) {
-			// í´ë¼ì´ì–¸íŠ¸ ì •ë³´ ì‚­ì œ
-			cout << "í´ë¼ì´ì–¸íŠ¸ì™€ ì—°ê²°ì´ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤: " << inet_ntoa(clientPool[i]->clientAddress.sin_addr) << ":" << ntohs(clientPool[i]->clientAddress.sin_port) << endl;
+			// Å¬¶óÀÌ¾ğÆ® Á¤º¸ »èÁ¦
+			cout << "Å¬¶óÀÌ¾ğÆ®¿Í ¿¬°áÀÌ Á¾·áµÇ¾ú½À´Ï´Ù: " << inet_ntoa(clientPool[i]->clientAddress.sin_addr) << ":" << ntohs(clientPool[i]->clientAddress.sin_port) << endl;
 			clientPool.erase(clientPool.begin() + i);
 			break;
 		}

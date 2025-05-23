@@ -26,6 +26,9 @@ public:
     void show() override {  // 부모 클래스의 함수를 오버라이드
         std::cout << "Child class show function" << std::endl;
     }
+    void parentShow() {
+        Parent::show();
+    }
     void childOnly() {
         std::cout << "Child class only function" << std::endl;
     }
@@ -50,6 +53,7 @@ int main() {
 
     Child* c = new Child;  // Child 객체 생성. Parent 생성자 -> Child 생성자
     c->show();  // Child 클래스의 show 함수 호출
+    c->parentShow();  // Child 클래스의 부모 show 함수 호출
     c->parentOnly();  // Parent 클래스의 parentOnly 함수 호출
     c->childOnly();  // Child 클래스의 childOnly 함수 호출
 
