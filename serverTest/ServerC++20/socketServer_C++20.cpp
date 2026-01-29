@@ -1,58 +1,58 @@
-#include <iostream>       // Ç¥ÁØ ÀÔÃâ·Â ½ºÆ®¸²À» À§ÇÑ Çì´õ ÆÄÀÏ
-#include <string>         // ¹®ÀÚ¿­ Ã³¸®¸¦ À§ÇÑ Çì´õ ÆÄÀÏ
-#include <thread>         // ½º·¹µå Ã³¸®¸¦ À§ÇÑ Çì´õ ÆÄÀÏ
-#include <vector>         // º¤ÅÍ ÄÁÅ×ÀÌ³Ê¸¦ À§ÇÑ Çì´õ ÆÄÀÏ
-#include <mutex>          // ¹ÂÅØ½º µ¿±âÈ­¸¦ À§ÇÑ Çì´õ ÆÄÀÏ
-#include <unordered_set>  // ÇØ½Ã ÁıÇÕÀ» À§ÇÑ Çì´õ ÆÄÀÏ
-#include <asio.hpp>       // ASIO ¶óÀÌºê·¯¸® Çì´õ ÆÄÀÏ
+#include <iostream>       // í‘œì¤€ ì…ì¶œë ¥ ìŠ¤íŠ¸ë¦¼ì„ ìœ„í•œ í—¤ë” íŒŒì¼
+#include <string>         // ë¬¸ìì—´ ì²˜ë¦¬ë¥¼ ìœ„í•œ í—¤ë” íŒŒì¼
+#include <thread>         // ìŠ¤ë ˆë“œ ì²˜ë¦¬ë¥¼ ìœ„í•œ í—¤ë” íŒŒì¼
+#include <vector>         // ë²¡í„° ì»¨í…Œì´ë„ˆë¥¼ ìœ„í•œ í—¤ë” íŒŒì¼
+#include <mutex>          // ë®¤í…ìŠ¤ ë™ê¸°í™”ë¥¼ ìœ„í•œ í—¤ë” íŒŒì¼
+#include <unordered_set>  // í•´ì‹œ ì§‘í•©ì„ ìœ„í•œ í—¤ë” íŒŒì¼
+#include <asio.hpp>       // ASIO ë¼ì´ë¸ŒëŸ¬ë¦¬ í—¤ë” íŒŒì¼
 
-using asio::ip::tcp;      // ³×ÀÓ½ºÆäÀÌ½º ´ÜÃà ¼±¾ğ
+using asio::ip::tcp;      // ë„¤ì„ìŠ¤í˜ì´ìŠ¤ ë‹¨ì¶• ì„ ì–¸
 
 class Server {
 public:
-    // »ı¼ºÀÚ: io_context °´Ã¼¿Í Æ÷Æ® ¹øÈ£¸¦ ¹Ş¾Æ¼­ ¼­¹ö ÃÊ±âÈ­
+    // ìƒì„±ì: io_context ê°ì²´ì™€ í¬íŠ¸ ë²ˆí˜¸ë¥¼ ë°›ì•„ì„œ ì„œë²„ ì´ˆê¸°í™”
     Server(asio::io_context& io_context, int port)
         : acceptor_(io_context, tcp::endpoint(tcp::v4(), port)) {
-        accept_connections();  // Å¬¶óÀÌ¾ğÆ® ¿¬°á ¼ö¶ô ½ÃÀÛ
+        accept_connections();  // í´ë¼ì´ì–¸íŠ¸ ì—°ê²° ìˆ˜ë½ ì‹œì‘
     }
 
 private:
-    // Å¬¶óÀÌ¾ğÆ® ¿¬°áÀ» ¼ö¶ôÇÏ´Â ÇÔ¼ö
+    // í´ë¼ì´ì–¸íŠ¸ ì—°ê²°ì„ ìˆ˜ë½í•˜ëŠ” í•¨ìˆ˜
     void accept_connections() {
         std::cout << "Server is running. Waiting for connections..." << std::endl;
-        // »õ ¼ÒÄÏ »ı¼º
+        // ìƒˆ ì†Œì¼“ ìƒì„±
         auto socket = std::make_shared<tcp::socket>(acceptor_.get_executor().context());
-        // ºñµ¿±âÀûÀ¸·Î Å¬¶óÀÌ¾ğÆ® ¿¬°áÀ» ¼ö¶ô
+        // ë¹„ë™ê¸°ì ìœ¼ë¡œ í´ë¼ì´ì–¸íŠ¸ ì—°ê²°ì„ ìˆ˜ë½
         acceptor_.async_accept(*socket, [this, socket](std::error_code ec) {
             if (!ec) {
-                // ¼º°øÀûÀ¸·Î ¿¬°áµÇ¸é Å¬¶óÀÌ¾ğÆ®¸¦ °ü¸®ÇÒ ÁıÇÕ¿¡ Ãß°¡
+                // ì„±ê³µì ìœ¼ë¡œ ì—°ê²°ë˜ë©´ í´ë¼ì´ì–¸íŠ¸ë¥¼ ê´€ë¦¬í•  ì§‘í•©ì— ì¶”ê°€
                 std::lock_guard<std::mutex> lock(mutex_);
                 clients_.insert(socket);
                 std::cout << "New client connected." << std::endl;
-                // Å¬¶óÀÌ¾ğÆ®¸¦ Ã³¸®ÇÏ´Â ½º·¹µå¸¦ »ı¼ºÇÏ¿© ºñµ¿±âÀûÀ¸·Î ½ÇÇà
+                // í´ë¼ì´ì–¸íŠ¸ë¥¼ ì²˜ë¦¬í•˜ëŠ” ìŠ¤ë ˆë“œë¥¼ ìƒì„±í•˜ì—¬ ë¹„ë™ê¸°ì ìœ¼ë¡œ ì‹¤í–‰
                 std::thread(&Server::handle_client, this, socket).detach();
             }
-            // ´ÙÀ½ ¿¬°áÀ» ¼ö¶ôÇÏ±â À§ÇØ Àç±ÍÀûÀ¸·Î È£Ãâ
+            // ë‹¤ìŒ ì—°ê²°ì„ ìˆ˜ë½í•˜ê¸° ìœ„í•´ ì¬ê·€ì ìœ¼ë¡œ í˜¸ì¶œ
             accept_connections();
         });
     }
 
-    // Å¬¶óÀÌ¾ğÆ®¿ÍÀÇ Åë½ÅÀ» Ã³¸®ÇÏ´Â ÇÔ¼ö
+    // í´ë¼ì´ì–¸íŠ¸ì™€ì˜ í†µì‹ ì„ ì²˜ë¦¬í•˜ëŠ” í•¨ìˆ˜
     void handle_client(std::shared_ptr<tcp::socket> socket) {
         try {
-            char data[1024];  // ¼ö½Å µ¥ÀÌÅÍ¸¦ ÀúÀåÇÒ ¹öÆÛ
+            char data[1024];  // ìˆ˜ì‹  ë°ì´í„°ë¥¼ ì €ì¥í•  ë²„í¼
             for (;;) {
                 std::error_code error;
-                // Å¬¶óÀÌ¾ğÆ®·ÎºÎÅÍ µ¥ÀÌÅÍ¸¦ ºñµ¿±âÀûÀ¸·Î ÀĞÀ½
+                // í´ë¼ì´ì–¸íŠ¸ë¡œë¶€í„° ë°ì´í„°ë¥¼ ë¹„ë™ê¸°ì ìœ¼ë¡œ ì½ìŒ
                 size_t length = socket->read_some(asio::buffer(data), error);
                 if (error == asio::error::eof) {
-                    break; // ¿¬°áÀÌ Á¤»óÀûÀ¸·Î Á¾·áµÈ °æ¿ì
+                    break; // ì—°ê²°ì´ ì •ìƒì ìœ¼ë¡œ ì¢…ë£Œëœ ê²½ìš°
                 } else if (error) {
-                    throw asio::system_error(error); // ±âÅ¸ ¿À·ù ¹ß»ı
+                    throw asio::system_error(error); // ê¸°íƒ€ ì˜¤ë¥˜ ë°œìƒ
                 }
 
                 std::lock_guard<std::mutex> lock(mutex_);
-                // ´Ù¸¥ ¸ğµç Å¬¶óÀÌ¾ğÆ®¿¡°Ô ¼ö½ÅµÈ µ¥ÀÌÅÍ¸¦ Àü¼Û
+                // ë‹¤ë¥¸ ëª¨ë“  í´ë¼ì´ì–¸íŠ¸ì—ê²Œ ìˆ˜ì‹ ëœ ë°ì´í„°ë¥¼ ì „ì†¡
                 for (auto& client : clients_) {
                     if (client != socket) {
                         asio::write(*client, asio::buffer(data, length));
@@ -63,29 +63,29 @@ private:
             std::cerr << "Exception in thread: " << e.what() << "\n";
         }
 
-        // Å¬¶óÀÌ¾ğÆ®°¡ ¿¬°áÀ» ²÷À¸¸é ÁıÇÕ¿¡¼­ Á¦°Å
+        // í´ë¼ì´ì–¸íŠ¸ê°€ ì—°ê²°ì„ ëŠìœ¼ë©´ ì§‘í•©ì—ì„œ ì œê±°
         std::lock_guard<std::mutex> lock(mutex_);
         clients_.erase(socket);
         std::cout << "Client disconnected." << std::endl;
     }
 
-    tcp::acceptor acceptor_;  // Å¬¶óÀÌ¾ğÆ® ¿¬°áÀ» ¼ö¶ôÇÏ´Â °´Ã¼
-    std::mutex mutex_;        // ¸ÖÆ¼½º·¹µå µ¿±âÈ­¸¦ À§ÇÑ ¹ÂÅØ½º
-    std::unordered_set<std::shared_ptr<tcp::socket>> clients_;  // Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏ ÁıÇÕ
+    tcp::acceptor acceptor_;  // í´ë¼ì´ì–¸íŠ¸ ì—°ê²°ì„ ìˆ˜ë½í•˜ëŠ” ê°ì²´
+    std::mutex mutex_;        // ë©€í‹°ìŠ¤ë ˆë“œ ë™ê¸°í™”ë¥¼ ìœ„í•œ ë®¤í…ìŠ¤
+    std::unordered_set<std::shared_ptr<tcp::socket>> clients_;  // í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ ì§‘í•©
 };
 
 int main(int argc, char* argv[]) {
     try {
         if (argc != 2) {
-            std::cerr << "Usage: server <port>\n";  // Æ÷Æ® ¹øÈ£ ÀÔ·Â À¯µµ
+            std::cerr << "Usage: server <port>\n";  // í¬íŠ¸ ë²ˆí˜¸ ì…ë ¥ ìœ ë„
             return 1;
         }
 
-        asio::io_context io_context;  // io_context °´Ã¼ »ı¼º
-        Server s(io_context, std::atoi(argv[1]));  // ¼­¹ö °´Ã¼ »ı¼º ¹× ÃÊ±âÈ­
-        io_context.run();  // io_context ½ÇÇà
+        asio::io_context io_context;  // io_context ê°ì²´ ìƒì„±
+        Server s(io_context, std::atoi(argv[1]));  // ì„œë²„ ê°ì²´ ìƒì„± ë° ì´ˆê¸°í™”
+        io_context.run();  // io_context ì‹¤í–‰
     } catch (std::exception& e) {
-        std::cerr << "Exception: " << e.what() << "\n";  // ¿¹¿Ü Ã³¸®
+        std::cerr << "Exception: " << e.what() << "\n";  // ì˜ˆì™¸ ì²˜ë¦¬
     }
 
     return 0;
